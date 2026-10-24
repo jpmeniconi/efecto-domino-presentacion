@@ -110,7 +110,7 @@ Cambia a la pantalla del iPhone proyectada en el Mac. Las fechas y horas pueden 
 
 ### Cómo narrar el video completo, si se usa como demo grabada
 
-**Archivo revisado:** `medios/recorrido.mp4`, duración medida **1:26,17**, sin voz. Es un montaje de distintos momentos: cambia de fechas y escenarios. Su recorrido no coincide con la demo en vivo de «Estoy agotada»: muestra una reunión que se alarga y luego la opción de retomar el lunes. Usa esta narración solo con el video; la tabla anterior corresponde a operar la app en vivo.
+**Archivo revisado:** `medios/recorrido.mp4`, duración medida **1:28,67**, sin voz. Empieza con una entrada de 2,5 s: el logo de Dominó se arma y se funde con la bienvenida. Es un montaje de distintos momentos: cambia de fechas y escenarios. Su recorrido no coincide con la demo en vivo de «Estoy agotada»: muestra una reunión que se alarga y luego la opción de retomar el lunes. Usa esta narración solo con el video; la tabla anterior corresponde a operar la app en vivo.
 
 Las instrucciones del proyecto piden una demo en vivo. Presentar desde el computador propio no confirma por sí solo que se pueda sustituir por una grabación. Mientras eso no esté confirmado, conserva el recorrido en vivo como principal y esta narración para el respaldo.
 
@@ -120,15 +120,16 @@ Antes de iniciar, di: **«Les muestro un recorrido grabado con distintos momento
 
 | Tiempo del video (aproximado) | Lo que aparece | Lo que dices |
 |---|---|---|
-| 0:00–0:07 | Bienvenida | «Dominó ayuda a hacer espacio para moverse cuando la semana cambia». |
-| 0:07–0:19 | «Se alargó la reunión», opciones y ajuste al viernes | «Aquí se alargó una reunión. Camila elige otro espacio en la semana y confirma. El plan se acomoda». |
-| 0:19–0:31 | «Ya perdí la semana» y reprogramación | «En este otro ejemplo quiere retomar el lunes. Los próximos bloques se mueven y lo que ya hizo sigue contando». |
-| 0:31–0:43 | Programa completo y detalle de un bloque | «Puede ver el camino completo y abrir cada sesión para saber qué tiene pensado hacer». |
-| 0:43–0:49 | Preparación de la semana siguiente | «También puede dejar lista su próxima semana». |
-| 0:49–0:56 | Registro y confirmación de la ficha 7 | «En otra toma, registra una sesión realizada. Ahí suma la ficha». |
-| 0:56–1:10 | Avance, nivel, logros y foto | «Lo que hizo queda visible. Puede guardar una foto de ese momento y, cuando vuelva, encontrar todo lo que ya ha avanzado». |
-| 1:10–1:21 | Modo juego con Javiera y tablero | «También hay un modo juego: una ficha por día. Esta partida con una amiga es una demostración local». |
-| 1:21–1:26 | «Lo que te funciona», ejemplo de la semana 6 | «Con más registros, puede descubrir qué le funciona». |
+| 0:00–0:03 | Entrada: las fichas del logo caen y forman la Gantt | Sin frase: deja que se arme el logo. |
+| 0:03–0:10 | Bienvenida | «Dominó ayuda a hacer espacio para moverse cuando la semana cambia». |
+| 0:10–0:22 | «Se alargó la reunión», opciones y ajuste al viernes | «Aquí se alargó una reunión. Camila elige otro espacio en la semana y confirma. El plan se acomoda». |
+| 0:22–0:34 | «Ya perdí la semana» y reprogramación | «En este otro ejemplo quiere retomar el lunes. Los próximos bloques se mueven y lo que ya hizo sigue contando». |
+| 0:34–0:46 | Programa completo y detalle de un bloque | «Puede ver el camino completo y abrir cada sesión para saber qué tiene pensado hacer». |
+| 0:46–0:52 | Preparación de la semana siguiente | «También puede dejar lista su próxima semana». |
+| 0:52–0:59 | Registro y confirmación de la ficha 7 | «En otra toma, registra una sesión realizada. Ahí suma la ficha». |
+| 0:59–1:13 | Avance, nivel, logros y foto | «Lo que hizo queda visible. Puede guardar una foto de ese momento y, cuando vuelva, encontrar todo lo que ya ha avanzado». |
+| 1:13–1:24 | Modo juego con Javiera y tablero | «También hay un modo juego: una ficha por día. Esta partida con una amiga es una demostración local». |
+| 1:24–1:28 | «Lo que te funciona», ejemplo de la semana 6 | «Con más registros, puede descubrir qué le funciona». |
 
 La última pantalla está rotulada como ejemplo de la semana 6. No atribuyas sus patrones a la sesión recién mostrada. El juego con Javiera no conecta dos teléfonos. La grabación enseña el prototipo; no es una prueba con una persona real.
 
@@ -138,10 +139,10 @@ La última pantalla está rotulada como ejemplo de la semana 6. No atribuyas sus
 |---|---|
 | Láminas 1 a 6, mismo guion | 0:00–1:50 |
 | Avisar que es una grabación y abrirla | 1:50–1:55 |
-| Video completo, narrando mientras corre | 1:55–3:21 |
-| Volver a la lámina 8 | 3:21–3:26 |
-| Láminas 8 a 11, mismo guion | 3:26–4:16 |
-| Margen hasta el límite | 0:44 |
+| Video completo, narrando mientras corre | 1:55–3:24 |
+| Volver a la lámina 8 | 3:24–3:29 |
+| Láminas 8 a 11, mismo guion | 3:29–4:19 |
+| Margen hasta el límite | 0:41 |
 
 **Elige un solo recorrido para el bloque de demo.** El video sustituye esos dos minutos si está autorizado; no se suma después de la demo en vivo. En las láminas 8 y 9 di solo las frases breves ya escritas: las imágenes del video acaban de mostrar el avance y los aprendizajes. No necesitas gastar los cinco minutos completos.
 
