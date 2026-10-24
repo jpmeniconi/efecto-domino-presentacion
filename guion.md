@@ -22,10 +22,11 @@ Lee en voz alta solo las citas y la columna «Dices» de la demo. El resto son n
 | 8 | Su avance se hace visible | 0:10 | 4:00 |
 | 9 | Descubrir qué le funciona | 0:15 | 4:15 |
 | 10 | Qué dejamos fuera | 0:10 | 4:25 |
-| 11 | ¿Camila vuelve y lo sostiene? | 0:15 | 4:40 |
-| — | Margen para transiciones y pausas | 0:20 | 5:00 |
+| 11 | ¿Camila vuelve y lo sostiene? | 0:10 | 4:35 |
+| 12 | Cierre · La vida activa que quieres | 0:15 | 4:50 |
+| — | Margen para transiciones y pausas | 0:10 | 5:00 |
 
-**Relato y demo: 4:40. Margen: 0:20. Total máximo: 5:00.** Es un presupuesto, no un ensayo medido. La meta es entrar a la demo en **1:50** y volver al navegador en **3:50**. Los dos minutos incluyen presentar la demo y cambiar de pantalla. Si usas parte del margen antes, acorta las láminas 8 y 10; conserva guardar la sesión y mostrar el avance.
+**Relato, demo y cierre: 4:50. Margen: 0:10. Total máximo: 5:00.** Es un presupuesto, no un ensayo medido. La meta es entrar a la demo en **1:50** y volver al navegador en **3:50**. Los dos minutos incluyen presentar la demo y cambiar de pantalla. Si usas parte del margen antes, acorta las láminas 8 y 10; conserva guardar la sesión y mostrar el avance. Para recuperar margen, la 2 y la 4 pueden durar 0:20 y 0:10.
 
 La conexión personal aparece en la lámina 4, con el trabajo, los videos y los proyectos. Cuéntala sin agregar otra historia larga: alcanza con que el jurado reconozca ese «lo dejo para después». Es una experiencia para conectar, no una explicación universal de por qué cuesta moverse.
 
@@ -97,7 +98,7 @@ En el iPhone, la invitación abre la hoja de compartir de iOS y Camila decide c�
 
 > Veamos ese momento: hoy Camila está agotada y necesita ajustar lo que tenía pensado.
 
-La lámina 7 muestra la demo en video dentro de su iPhone: los cuatro primeros pasos corren solos, uno tras otro, en unos 36 s; el quinto, el recorrido completo de 1:28, corre solo si lo eliges. Si haces la demo en vivo, cambia a la pantalla del iPhone proyectada en el Mac; si no, narra sobre el video de la lámina. Las fechas y horas pueden ser las que aparezcan en tu teléfono. El recorrido se guía por funciones; los tiempos de cada fila son metas de ensayo.
+La lámina 7 muestra la demo en video dentro de su iPhone: los cuatro primeros pasos corren solos, uno tras otro, en unos 39 s; el quinto, el recorrido completo de 1:28, corre solo si lo eliges. Si haces la demo en vivo, cambia a la pantalla del iPhone proyectada en el Mac; si no, narra sobre el video de la lámina. Las fechas y horas pueden ser las que aparezcan en tu teléfono. El recorrido se guía por funciones; los tiempos de cada fila son metas de ensayo.
 
 | Tiempo de demo | Muestra / toca | Dices |
 |---|---|---|
@@ -196,11 +197,17 @@ Las tres decisiones se recorren solas mientras hablas, en unos 11 s: avisos, ava
 
 Los avisos locales sí están implementados y parten desactivados. Camila elige cuáles activar, el horario de descanso y el sonido; se programan como máximo dos por día. No confundirlos con avisos insistentes. Tampoco se incluyeron cuentas, servidor ni conexión multijugador.
 
-## 11 · ¿Camila vuelve y lo sostiene? · 4:25 a 4:40
+## 11 · ¿Camila vuelve y lo sostiene? · 4:25 a 4:35
 
-> Ahora queremos probar si esto ayuda a volver antes, moverse cada semana y seguir a las doce semanas. Ese es el próximo paso. Dominó: hacer espacio para moverte. Gracias.
+> Ahora queremos probar si esto ayuda a volver antes, moverse cada semana y seguir a las doce semanas. Ese es el próximo paso.
 
-Quédate en esta lámina para las preguntas: es la última y contiene el QR del repositorio. Las métricas son un plan de validación, no resultados obtenidos.
+Las métricas son un plan de validación, no resultados obtenidos. Para las preguntas, vuelve a esta lámina con ←: tiene el QR del repositorio.
+
+## 12 · Cierre: la vida activa que quieres · 4:35 a 4:50
+
+> Retrasos siempre va a haber. Es parte de la vida. Pero lo importante… no es evitar todos los retrasos. *(Pausa)* Lo importante es tener un plan que te permita seguir construyendo la vida activa que quieres. Eso es Dominó. Muchas gracias.
+
+Al entrar, cinco tarjetas ilustradas avanzan de izquierda a derecha mientras dices las dos primeras frases. Después de la pausa, presiona →: las tarjetas se desenfocan y entra la frase, palabra por palabra; al final se arma el logo con «Eso es Dominó». Si no presionas, la frase aparece sola a los 9 s. Es la última lámina: otra → no avanza.
 
 ---
 

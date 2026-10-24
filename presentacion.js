@@ -68,7 +68,12 @@
     anuncio.textContent = (indice + 1) + ' de ' + total + ': ' + entrante.getAttribute('data-titulo');
   }
 
-  function siguiente() { ir(actual + 1); }
+  /** Una lámina puede detener el avance para mostrar su segunda parte (evento «avanzar» cancelable). */
+  function siguiente() {
+    var d = diapositivas[actual];
+    if (d && enDeck() && !d.dispatchEvent(new CustomEvent('avanzar', { cancelable: true }))) return;
+    ir(actual + 1);
+  }
   function anterior() { ir(actual - 1); }
 
   // ------------------------------------------------------------------ Modo: presentación o página vertical

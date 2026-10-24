@@ -1,6 +1,6 @@
 # Presentación del pitch
 
-Once diapositivas del pitch de Dominó en HTML, CSS y JavaScript, sin dependencias ni compilación. El relato es: **Camila quiere sentirse bien → encuentra espacio → elige un paso posible → lo hace → ve su avance → descubre qué le funciona**.
+Doce diapositivas del pitch de Dominó en HTML, CSS y JavaScript, sin dependencias ni compilación. El relato es: **Camila quiere sentirse bien → encuentra espacio → elige un paso posible → lo hace → ve su avance → descubre qué le funciona**.
 
 La tipografía es la del sistema (SF en Mac). En horizontal se usa un lienzo 1920 × 1080 escalado, con proporción 16:9; en un celular vertical se lee como página. El texto para presentar, el recorrido del iPhone y las preguntas probables están en [`guion.md`](guion.md). El relato y la demo suman 4:40 y dejan 0:20 de margen hasta el límite de 5:00.
 
@@ -45,7 +45,8 @@ El número de la lámina queda en la dirección: `index.html#7` abre la demo. En
 | 8 | Su avance se hace visible | Fichas/nivel, una foto y ciclos del Modo juego |
 | 9 | Descubrir qué le funciona | Horarios, ayudas y manual para seguir |
 | 10 | Qué dejamos fuera | Avisos insistentes, rachas que vuelven a cero, exposición de faltas y límites de esta versión |
-| 11 | ¿Camila vuelve y lo sostiene? | Métricas propuestas para un piloto y cierre con QR; es la última lámina |
+| 11 | ¿Camila vuelve y lo sostiene? | Métricas propuestas para un piloto y QR del repositorio |
+| 12 | Cierre · La vida activa que quieres | Cinco ilustraciones que avanzan, se desenfocan y dejan la frase final con el logo |
 
 Al entrar a la portada, el ícono se arma en 1,7 s: cuatro fichas de dominó de pie caen una sobre otra y cada una aterriza acostada como una barra de la carta Gantt; la cuarta queda como el bloque de holgura. Se repite cada vez que se vuelve a la lámina 1; con Reducir movimiento y al imprimir se ve el ícono quieto. `medios/logo-animado.svg` y su copia incrustada en `index.html` se generan con `python3 herramientas/logo-animado.py`, que ajusta velocidad, rebote, cascada y pausa.
 
@@ -73,7 +74,7 @@ Configuración del proyecto:
 
 ## Capturas y videos
 
-Los medios están en `medios/`. La lámina 7 muestra la demo en video dentro del iPhone: al entrar, los cuatro primeros pasos corren solos, uno tras otro, en unos 36 s. El quinto, el recorrido completo con la entrada del logo (1:28), corre solo si se elige. Tocar un paso o su tecla lo muestra y detiene el recorrido; **K** pausa o sigue. Con Reducir movimiento no corre sola y se usa **Reproducir**.
+Los medios están en `medios/`. La lámina 7 muestra la demo en video dentro del iPhone: al entrar, los cuatro primeros pasos corren solos, uno tras otro, en unos 39 s. El quinto, el recorrido completo con la entrada del logo (1:28), corre solo si se elige. Tocar un paso o su tecla lo muestra y detiene el recorrido; **K** pausa o sigue. Con Reducir movimiento no corre sola y se usa **Reproducir**.
 
 | Tecla | Video | Captura | Función |
 |---|---|---|---|
@@ -97,8 +98,9 @@ Medios visibles en las otras láminas:
 | `foto-ampliada.png` | 8 · Foto de una ficha |
 | `lo-que-te-funciona.png`, `manual.png` | 9 · Aprendizajes y manual |
 | `demo-notificaciones.mp4`, `notificacion-aviso.png` | 10 · Grabación y captura de un aviso real de iOS |
+| `cierre-1.jpg` … `cierre-5.jpg` | 12 · Ilustraciones verticales del cierre, generadas con Codex en el estilo de las de la app |
 
-El video de la lámina 6 y sus dos imágenes se generaron con `scripts/clip-semana.swift` en el repositorio original de la app. En este repositorio independiente se conservan los medios resultantes.
+El video de la lámina 6 y sus dos imágenes se generaron con `scripts/clip-semana.swift` en el repositorio original de la app. `demo-registrar.mp4` se regrabó el 24 de octubre en el simulador con la versión entregada (9eaabd2): desplaza la hoja, marca Bien, Mejor y dos ayudas, y guarda; un círculo marca cada toque. En este repositorio independiente se conservan los medios resultantes.
 
 Los demás archivos de `medios/`, incluida la antigua captura `calendario.png`, el juego, las fotos, el miércoles y el domingo, quedan disponibles como referencias y recorridos adicionales. `recorrido.mp4` reúne varias funciones y no sustituye el ensayo de dos minutos descrito en el guion. Empieza con 2,5 s del logo animado, que se funde con la bienvenida; dura 1:28,67.
 
@@ -106,12 +108,12 @@ Las capturas PNG originales son verticales del simulador iPhone 18 Pro, 1206 × 
 
 ## Verificación antes de compartir
 
-1. Recorre las once láminas en horizontal y vertical; comprueba texto, imágenes y consola.
+1. Recorre las doce láminas en horizontal y vertical; comprueba texto, imágenes y consola.
 2. En la portada, comprueba la rotación automática cada cinco segundos, la ausencia de botones y contador y la frase estática con Reducir movimiento.
 3. En la lámina 6, comprueba una reproducción al entrar, pausa, continuación y repetición. **Invitar a alguien** debe volver a la tarjeta de caminata y animar el mensaje sin avanzar de lámina. Prueba también Reducir movimiento, **Ver recorrido** y las imágenes de respaldo si falla el video.
 4. En `#7`, comprueba que la demo corra sola por los cuatro pasos y se detenga al final. Prueba las teclas 1–4 y **K**, y que la flecha y el espacio sigan avanzando de lámina.
 5. Comprueba el enlace del QR y que el guion conserve un presupuesto total de 5:00.
-6. En la 10, comprueba que las tres decisiones se recorran solas y que la invitación termine en su tarjeta; tocar una debe detener el recorrido. Cambiar de pestaña o imprimir debe pausar los videos. La 11, con el QR, debe ser la última.
+6. En la 10, comprueba que las tres decisiones se recorran solas y que la invitación termine en su tarjeta; tocar una debe detener el recorrido. Cambiar de pestaña o imprimir debe pausar los videos. En la 12, comprueba que la flecha muestre la frase antes de terminar y que aparezca sola a los 9 s.
 
 ## PDF de respaldo
 
