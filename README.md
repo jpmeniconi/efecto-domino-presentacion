@@ -47,6 +47,8 @@ El número de la lámina queda en la dirección: `index.html#7` abre la demo. En
 | 10 | Qué dejamos fuera | Avisos insistentes, rachas que vuelven a cero, exposición de faltas y límites de esta versión |
 | 11 | ¿Camila vuelve y lo sostiene? | Métricas propuestas para un piloto y cierre con QR; es la última lámina |
 
+Al entrar a la portada, el ícono se arma en 1,7 s: cuatro fichas de dominó de pie caen una sobre otra y cada una aterriza acostada como una barra de la carta Gantt; la cuarta queda como el bloque de holgura. Se repite cada vez que se vuelve a la lámina 1; con Reducir movimiento y al imprimir se ve el ícono quieto. `medios/logo-animado.svg` y su copia incrustada en `index.html` se generan con `python3 herramientas/logo-animado.py`, que ajusta velocidad, rebote, cascada y pausa.
+
 En la portada, tres citas de autores se alternan cada cinco segundos dentro del iPhone. No hay botones ni contador; con Reducir movimiento se mantiene una frase estática. Es un comportamiento de la presentación. La bienvenida de la app nativa mantiene su frase hasta que la persona toca la flecha habilitada: no entra sola al terminar la carga.
 
 La lámina 8 incorpora «Tu progreso, ciclo a ciclo»: periodos de 28 días del Modo juego, una ficha por día y comparación con el propio récord. Son distintos del programa de seis semanas; el historial de sesiones permanece.
@@ -86,6 +88,7 @@ Medios visibles en las otras láminas:
 
 | Archivo | Uso |
 |---|---|
+| `logo-animado.svg` | 1 · Logo animado de la portada; `index.html` lleva una copia incrustada |
 | `bienvenida.png` | Referencia visual de la bienvenida; la portada usa su representación interactiva |
 | `semana-recorrido.mp4` | 6 · Recorrido de invitación y reubicación, unos ocho segundos |
 | `semana-invitar.png`, `semana-reubicacion.png` | 6 · Imágenes inicial y de respaldo del recorrido |
@@ -96,7 +99,7 @@ Medios visibles en las otras láminas:
 
 El video de la lámina 6 y sus dos imágenes se generaron con `scripts/clip-semana.swift` en el repositorio original de la app. En este repositorio independiente se conservan los medios resultantes.
 
-Los demás archivos de `medios/`, incluida la antigua captura `calendario.png`, el juego, las fotos, el miércoles y el domingo, quedan disponibles como referencias y recorridos adicionales. `recorrido.mp4` reúne varias funciones y no sustituye el ensayo de dos minutos descrito en el guion.
+Los demás archivos de `medios/`, incluida la antigua captura `calendario.png`, el juego, las fotos, el miércoles y el domingo, quedan disponibles como referencias y recorridos adicionales. `recorrido.mp4` reúne varias funciones y no sustituye el ensayo de dos minutos descrito en el guion. Empieza con 2,5 s del logo animado, que se funde con la bienvenida; dura 1:28,67.
 
 Las capturas PNG originales son verticales del simulador iPhone 18 Pro, 1206 × 2622. El video y las dos imágenes de la lámina 6 están a 720 × 1564. Los videos son MP4 H.264 verticales y sin audio. Mantén las imágenes dentro del marco de iPhone y revisa la legibilidad tanto a 1920 × 1080 como en vertical.
 
