@@ -47,7 +47,7 @@ El número de la lámina queda en la dirección: `index.html#7` abre la demo. En
 | 10 | Qué dejamos fuera | Avisos insistentes, rachas que vuelven a cero, exposición de faltas y límites de esta versión |
 | 11 | ¿Camila vuelve y lo sostiene? | Métricas propuestas para un piloto y cierre con QR; es la última lámina |
 
-Al entrar a la portada, el ícono se arma en 1,2 s: cuatro fichas de dominó se paran en fila y, en cascada, pasan a ser las barras de la carta Gantt y el bloque de holgura. Se repite cada vez que se vuelve a la lámina 1; con Reducir movimiento y al imprimir se ve el ícono quieto. `medios/logo-animado.svg` y su copia incrustada en `index.html` se generan con `python3 herramientas/logo-animado.py`, que ajusta velocidad, rebote, orden y cascada.
+Al entrar a la portada, el ícono se arma en 1,7 s: cuatro fichas de dominó de pie caen una sobre otra y cada una aterriza acostada como una barra de la carta Gantt; la cuarta queda como el bloque de holgura. Se repite cada vez que se vuelve a la lámina 1; con Reducir movimiento y al imprimir se ve el ícono quieto. `medios/logo-animado.svg` y su copia incrustada en `index.html` se generan con `python3 herramientas/logo-animado.py`, que ajusta velocidad, rebote, cascada y pausa.
 
 En la portada, tres citas de autores se alternan cada cinco segundos dentro del iPhone. No hay botones ni contador; con Reducir movimiento se mantiene una frase estática. Es un comportamiento de la presentación. La bienvenida de la app nativa mantiene su frase hasta que la persona toca la flecha habilitada: no entra sola al terminar la carga.
 

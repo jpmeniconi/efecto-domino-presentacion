@@ -51,7 +51,7 @@ La conexión personal aparece en la lámina 4, con el trabajo, los videos y los 
 
 La bienvenida dentro del iPhone de la portada alterna automáticamente tres citas con su autor cada cinco segundos, sin botones ni contador. Con Reducir movimiento mantiene una frase estática. Es un recurso de esta presentación. En la app nativa, la frase de bienvenida permanece hasta que la persona toca la flecha; terminar de cargar solo habilita esa flecha.
 
-Al entrar, el ícono se arma en 1,2 s: las fichas de dominó pasan a ser las barras de la Gantt. Con Reducir movimiento queda quieto.
+Al entrar, el ícono se arma en 1,7 s: las fichas caen como dominó y quedan como las barras de la Gantt. Con Reducir movimiento queda quieto.
 
 No leas la cita ni esperes a que termine la rotación. La portada introduce el propósito.
 
