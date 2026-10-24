@@ -95,3 +95,50 @@
   preparar(carga);
   actualizar();
 })();
+
+// Portada: el logo se arma al entrar a la lámina 1 y vuelve a armarse cada vez que se regresa a ella.
+// Va incrustado (copia de medios/logo-animado.svg) para controlar su reloj también como archivo local.
+(function () {
+  'use strict';
+  var logo = document.getElementById('portada-logo');
+  if (!logo || typeof logo.pauseAnimations !== 'function') return;
+  var portada = logo.closest('.diapositiva');
+  var raiz = document.documentElement;
+  var reducir = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var dentro = false;
+  var fuera = true;
+  var armado = false;
+  var espera = null;
+
+  function primerCuadro() {
+    clearTimeout(espera);
+    logo.pauseAnimations();
+    logo.setCurrentTime(0);
+    armado = false;
+  }
+
+  function actualizar() {
+    if (reducir.matches) { primerCuadro(); return; }
+    var activa = portada.classList.contains('activa');
+    var enDeck = raiz.classList.contains('modo-deck');
+    if (dentro && activa && (!enDeck || portada.classList.contains('actual'))) {
+      if (armado) return;
+      armado = true;
+      // Parte junto con el fundido de entrada del ícono (.entra, primer elemento: 0,16 s).
+      espera = setTimeout(function () { logo.setCurrentTime(0); logo.unpauseAnimations(); }, 160);
+    } else if (fuera || !activa) {
+      primerCuadro();
+    }
+  }
+
+  primerCuadro();
+  new IntersectionObserver(function (entradas) {
+    dentro = entradas[0].isIntersecting && entradas[0].intersectionRatio >= .6;
+    fuera = !entradas[0].isIntersecting;
+    actualizar();
+  }, { threshold: [0, .6] }).observe(logo);
+  new MutationObserver(actualizar).observe(portada, { attributes: true, attributeFilter: ['class'] });
+  new MutationObserver(actualizar).observe(raiz, { attributes: true, attributeFilter: ['class'] });
+  if (reducir.addEventListener) reducir.addEventListener('change', actualizar);
+  else reducir.addListener(actualizar);
+})();

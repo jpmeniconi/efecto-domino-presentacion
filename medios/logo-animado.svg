@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Dominó">
+<!-- El ícono de Dominó (icono.svg) animado una vez: cuatro fichas de dominó se paran en fila y, una tras
+     otra, cambian de forma con un rebote suave hasta ser las barras de la carta Gantt y el bloque de holgura.
+     Animación SVG nativa: corre también dentro de <img>. Con Reducir movimiento se ve el ícono quieto.
+     herramientas/logo-animado.py --velocidad 1 --rebote 1 --orden 0123 --cascada 1 · 1.195 s -->
+<style>
+  .logo-quieto { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-animado { display: none; }
+    .logo-quieto { display: inline; }
+  }
+</style>
+<defs>
+  <linearGradient id="logo-naranja" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f78c3d"/><stop offset="1" stop-color="#e04d1a"/></linearGradient>
+  <!-- El mismo degradado en coordenadas del ícono: los puntos se ven como agujeros en la ficha. -->
+  <linearGradient id="logo-naranja-fondo" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1024" y2="1024"><stop offset="0" stop-color="#f78c3d"/><stop offset="1" stop-color="#e04d1a"/></linearGradient>
+</defs>
+<path d="M289.6 0L734.4 0C817.8 0 859.5 0 904.4 14.2C953.4 32 992 70.6 1009.8 119.6C1024 164.5 1024 206.2 1024 289.6L1024 734.4C1024 817.8 1024 859.5 1009.8 904.4C992 953.4 953.4 992 904.4 1009.8C859.5 1024 817.8 1024 734.4 1024L289.6 1024C206.2 1024 164.5 1024 119.6 1009.8C70.6 992 32 953.4 14.2 904.4C0 859.5 0 817.8 0 734.4L0 289.6C0 206.2 0 164.5 14.2 119.6C32 70.6 70.6 32 119.6 14.2C164.5 0 206.2 0 289.6 0Z" fill="url(#logo-naranja)"/>
+<g class="logo-animado">
+  <rect x="226" y="612" width="104" height="0" rx="30" fill="#fff" fill-opacity="1">
+    <animate attributeName="y" values="612;402;412" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.06s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="height" values="0;210;200" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.06s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="x" values="226;168;168" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.42s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="width" values="104;362;340" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.42s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="y" values="412;224;220" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.42s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="height" values="200;96;104" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.42s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="rx" values="30;48;52" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.42s" dur="0.52s" fill="freeze"/>
+  </rect>
+  <g fill="url(#logo-naranja-fondo)" stroke="url(#logo-naranja-fondo)" stroke-width="9" stroke-linecap="round" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.252s" dur="0.12s" fill="freeze"/><animate attributeName="opacity" values="1;0" begin="0.42s" dur="0.12s" fill="freeze"/><circle cx="278" cy="462" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.42s" dur="0.2s" fill="freeze"/></circle><circle cx="278" cy="562" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.42s" dur="0.2s" fill="freeze"/></circle><line x1="252" y1="512" x2="304" y2="512"/></g>
+  <rect x="382" y="612" width="104" height="0" rx="30" fill="#fff" fill-opacity=".92">
+    <animate attributeName="y" values="612;402;412" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.105s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="height" values="0;210;200" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.105s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="x" values="382;312;312" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.505s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="width" values="104;322;300" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.505s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="y" values="412;380;376" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.505s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="height" values="200;96;104" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.505s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="rx" values="30;48;52" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.505s" dur="0.52s" fill="freeze"/>
+  </rect>
+  <g fill="url(#logo-naranja-fondo)" stroke="url(#logo-naranja-fondo)" stroke-width="9" stroke-linecap="round" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.297s" dur="0.12s" fill="freeze"/><animate attributeName="opacity" values="1;0" begin="0.505s" dur="0.12s" fill="freeze"/><circle cx="434" cy="462" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.505s" dur="0.2s" fill="freeze"/></circle><circle cx="434" cy="562" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.505s" dur="0.2s" fill="freeze"/></circle><line x1="408" y1="512" x2="460" y2="512"/></g>
+  <rect x="538" y="612" width="104" height="0" rx="30" fill="#fff" fill-opacity=".84">
+    <animate attributeName="y" values="612;402;412" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.15s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="height" values="0;210;200" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.15s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="x" values="538;456;456" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.59s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="width" values="104;352;330" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.59s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="y" values="412;536;532" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.59s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="height" values="200;96;104" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.59s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="rx" values="30;48;52" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.59s" dur="0.52s" fill="freeze"/>
+  </rect>
+  <g fill="url(#logo-naranja-fondo)" stroke="url(#logo-naranja-fondo)" stroke-width="9" stroke-linecap="round" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.342s" dur="0.12s" fill="freeze"/><animate attributeName="opacity" values="1;0" begin="0.59s" dur="0.12s" fill="freeze"/><circle cx="590" cy="462" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.59s" dur="0.2s" fill="freeze"/></circle><circle cx="590" cy="562" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.59s" dur="0.2s" fill="freeze"/></circle><line x1="564" y1="512" x2="616" y2="512"/></g>
+  <rect x="694" y="612" width="104" height="0" rx="30" fill="#fff" fill-opacity="1" stroke="#fff" stroke-opacity="0" stroke-width="14">
+    <animate attributeName="y" values="612;402;412" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.195s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="height" values="0;210;200" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.195s" dur="0.32s" fill="freeze"/>
+    <animate attributeName="x" values="694;607;607" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.675s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="width" values="104;258;242" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.675s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="y" values="412;699;695" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.675s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="height" values="200;82;90" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.675s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="rx" values="30;41;45" keyTimes="0;0.62;1" calcMode="spline" keySplines=".25 .1 .25 1;.45 0 .55 1" begin="0.675s" dur="0.52s" fill="freeze"/>
+    <animate attributeName="fill-opacity" values="1;0" begin="0.725s" dur="0.286s" fill="freeze"/>
+    <animate attributeName="stroke-opacity" values="0;0.9" begin="0.725s" dur="0.286s" fill="freeze"/>
+  </rect>
+  <g fill="url(#logo-naranja-fondo)" stroke="url(#logo-naranja-fondo)" stroke-width="9" stroke-linecap="round" opacity="0"><animate attributeName="opacity" values="0;1" begin="0.387s" dur="0.12s" fill="freeze"/><animate attributeName="opacity" values="1;0" begin="0.675s" dur="0.12s" fill="freeze"/><circle cx="746" cy="462" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.675s" dur="0.2s" fill="freeze"/></circle><circle cx="746" cy="562" r="16"><animate attributeName="r" values="16;0;0" keyTimes="0;0.62;1" calcMode="spline" keySplines=".4 0 .6 1;0 0 1 1" begin="0.675s" dur="0.2s" fill="freeze"/></circle><line x1="720" y1="512" x2="772" y2="512"/></g>
+</g>
+<g class="logo-quieto">
+  <rect x="168" y="220" width="340" height="104" rx="52" fill="#fff"/>
+  <rect x="312" y="376" width="300" height="104" rx="52" fill="#fff" fill-opacity=".92"/>
+  <rect x="456" y="532" width="330" height="104" rx="52" fill="#fff" fill-opacity=".84"/>
+  <rect x="607" y="695" width="242" height="90" rx="45" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="14"/>
+</g>
+</svg>

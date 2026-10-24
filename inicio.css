@@ -104,3 +104,10 @@
   .inicio-anillo { stroke-dashoffset: 0; }
   .inicio-entrada { color: var(--inicio-acento); background: #f46a211c; }
 }
+
+/* Logo animado de la portada (medios/logo-animado.svg incrustado). Quieto con Reducir movimiento y al imprimir. */
+.portada-logo .logo-quieto { display: none; }
+@media (prefers-reduced-motion: reduce), print {
+  .portada-logo .logo-animado { display: none; }
+  .portada-logo .logo-quieto { display: inline; }
+}
