@@ -37,9 +37,9 @@ La conexión personal aparece en la lámina 4, con el trabajo, los videos y los 
 | ← · PageUp | Anterior |
 | F | Pantalla completa |
 | B | Pantalla negra; otra tecla la quita |
-| 1 · 2 · 3 · 4 | En la lámina 7: ajuste, registro, avance y programa, respectivamente |
-| Espacio | Con un respaldo abierto: pausa o sigue el video |
-| Esc | Cierra el respaldo o la ayuda |
+| 1 · 2 · 3 · 4 | En la lámina 7: ajustar, registrar, ver el avance y el programa |
+| K | En la lámina 7: pausa o sigue la demo en video |
+| Esc | Cierra la ayuda |
 | T | Tema claro u oscuro |
 | ? | Muestra la ayuda |
 
@@ -95,7 +95,7 @@ En el iPhone, la invitación abre la hoja de compartir de iOS y Camila decide c�
 
 > Veamos ese momento: hoy Camila está agotada y necesita ajustar lo que tenía pensado.
 
-Cambia a la pantalla del iPhone proyectada en el Mac. Las fechas y horas pueden ser las que aparezcan en tu teléfono. El recorrido se guía por funciones; los tiempos de cada fila son metas de ensayo.
+La lámina 7 muestra la demo en video dentro de su iPhone: los cuatro pasos corren solos, uno tras otro, en unos 36 s. Si haces la demo en vivo, cambia a la pantalla del iPhone proyectada en el Mac; si no, narra sobre el video de la lámina. Las fechas y horas pueden ser las que aparezcan en tu teléfono. El recorrido se guía por funciones; los tiempos de cada fila son metas de ensayo.
 
 | Tiempo de demo | Muestra / toca | Dices |
 |---|---|---|
@@ -143,7 +143,7 @@ La última pantalla está rotulada como ejemplo de la semana 6. No atribuyas sus
 
 **Elige un solo recorrido para el bloque de demo.** El video sustituye esos dos minutos si está autorizado; no se suma después de la demo en vivo. En las láminas 8 y 9 di solo las frases breves ya escritas: las imágenes del video acaban de mostrar el avance y los aprendizajes. No necesitas gastar los cinco minutos completos.
 
-Para ensayar, abre el archivo local en QuickTime y deja el inicio preparado. El navegador queda en la lámina 7. Al terminar cambia al navegador y avanza a la 8. Si usas los videos individuales dentro de la lámina 7, sus teclas son **1 ajuste, 2 registro, 3 avance y 4 programa**; **Espacio** pausa y **Esc** vuelve a la lámina. Esos videos individuales no tienen los tiempos de esta tabla.
+Para ensayar, abre el archivo local en QuickTime y deja el inicio preparado. El navegador queda en la lámina 7. Al terminar cambia al navegador y avanza a la 8. Los videos de la lámina 7 corren solos; **1–4** saltan a un paso y **K** pausa. No tienen los tiempos de esta tabla.
 
 ### Preparar el recorrido una vez
 
@@ -159,7 +159,7 @@ Para ensayar, abre el archivo local en QuickTime y deja el inicio preparado. El 
 
 ### Si la demo se interrumpe
 
-- **Se interrumpe la proyección o la app no responde:** vuelve a la lámina **7**. **1** muestra el ajuste, **2** el registro, **3** el avance y **4** el programa completo. Son videos de funciones: sus horarios o cifras pueden diferir de los del iPhone. Espacio pausa y Esc cierra.
+- **Se interrumpe la proyección o la app no responde:** vuelve a la lámina **7**: la demo en video corre sola. **1** muestra el ajuste, **2** el registro, **3** el avance y **4** el programa completo; **K** pausa. Son videos de funciones: sus horarios o cifras pueden diferir de los del iPhone.
 - **La lectura tarda:** sigue explicando la elección de Camila; tras doce segundos la app recurre a la lectura local. Para un ensayo predecible puedes activar antes reloj → **Usar solo lectura local**. Si te preguntan, distingue esa lectura por palabras clave del modelo de Apple.
 - **Tocaste otra opción:** usa **Deshacer** mientras esté visible, o muestra la opción elegida y continúa.
 - **La app se cerró:** vuelve a abrirla y toca la flecha de bienvenida; el plan y el reloj conservan su estado.
@@ -189,6 +189,8 @@ Las imágenes muestran cómo se organiza esa información al avanzar el programa
 
 > Camila elige qué avisos recibir y qué compartir. Conserva sus fichas cuando vuelve. Esta versión se concentra en ayudarla a seguir.
 
+Las tres decisiones se recorren solas mientras hablas, en unos 11 s: avisos, avance e invitación. Si quieres volver a una, tócala y el recorrido se detiene.
+
 Los avisos locales sí están implementados y parten desactivados. Camila elige cuáles activar, el horario de descanso y el sonido; se programan como máximo dos por día. No confundirlos con avisos insistentes. Tampoco se incluyeron cuentas, servidor ni conexión multijugador.
 
 ## 11 · ¿Camila vuelve y lo sostiene? · 4:25 a 4:40
@@ -214,7 +216,7 @@ Quédate en esta lámina para las preguntas: es la última y contiene el QR del 
 - Prueba el cambio entre el navegador y la pantalla del iPhone. La presentación permanece en la lámina **7** durante la demo.
 - Ten el archivo local `index.html` de este repositorio y la versión de Vercel disponibles. El archivo local usa los medios que tengas descargados junto a él.
 - Mira las láminas 3, 5 y 8 desde el fondo de la sala. Si hace falta, **T** cambia entre claro y oscuro.
-- Desde la lámina **7**, prueba las teclas **1**, **2**, **3** y **4**; cierra cada respaldo con **Esc**.
+- En la lámina **7**, deja correr la demo en video y prueba las teclas **1**, **2**, **3**, **4** y **K**.
 - Comprueba avance, retroceso y pantalla completa. En la portada, verifica la rotación automática de citas; con Reducir movimiento debe mantenerse una frase estática.
 
 **Ensayo**

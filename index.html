@@ -32,6 +32,7 @@
   })();
 </script>
 <script src="presentacion.js" defer></script>
+<script src="demo.js" defer></script>
 <script src="inicio.js" defer></script>
 <script src="semana.js" defer></script>
 <script src="continuidad.js" defer></script>
@@ -229,67 +230,37 @@
   </figure>
 </section>
 
-<!-- 7 · Demo en vivo -->
-<section class="diapositiva demo" id="7" aria-roledescription="diapositiva" aria-label="7 de 11: Demo en vivo" data-titulo="Demo en vivo">
-  <p class="kicker entra" style="--i:0">Del plan a la acción, en su iPhone</p>
-  <h2 class="titulo entra" style="--i:1">Un paso posible. Un avance real.</h2>
-  <ol class="momentos">
-    <li class="entra" style="--i:2"><button type="button" class="momento" data-clip="1" aria-label="Ajustar el plan. Abrir video de respaldo.">
-      <span class="momento-dia">Ajustar</span><span class="momento-hora">1</span><span class="momento-texto">Elegir lo que hoy le&nbsp;acomoda.</span>
-    </button></li>
-    <li class="entra" style="--i:3"><button type="button" class="momento" data-clip="2" aria-label="Registrar una sesión. Abrir video de respaldo.">
-      <span class="momento-dia">Registrar</span><span class="momento-hora">2</span><span class="momento-texto">Guardar ese paso que&nbsp;ya&nbsp;hizo.</span>
-    </button></li>
-    <li class="entra" style="--i:4"><button type="button" class="momento" data-clip="3" aria-label="Ver su avance. Abrir video de respaldo.">
-      <span class="momento-dia">Ver su avance</span><span class="momento-hora">3</span><span class="momento-texto">Una ficha más por lo de&nbsp;hoy.</span>
-    </button></li>
-  </ol>
-
-  <div class="respaldo" id="respaldo" role="dialog" aria-modal="true" aria-label="Respaldo de la demo" hidden>
-    <div class="respaldo-lado">
-      <p class="kicker">Respaldo de la demo</p>
-      <ol class="respaldo-lista">
-        <li><button type="button" class="clip" data-clip="1" data-video="demo-lunes.mp4" data-capturas="mi-plan.png ajustar.png">
-          <span class="clip-tecla">1</span><span class="clip-nombre">Ajustar el plan</span><span class="clip-texto">Encontrar un horario disponible</span>
-        </button></li>
-        <li><button type="button" class="clip" data-clip="2" data-video="demo-registrar.mp4" data-capturas="registrar.png">
-          <span class="clip-tecla">2</span><span class="clip-nombre">Registrar una sesión</span><span class="clip-texto">Fui, cómo me sentí y qué ayudó</span>
-        </button></li>
-        <li><button type="button" class="clip" data-clip="3" data-video="demo-tu-avance.mp4" data-capturas="tu-avance.png">
-          <span class="clip-tecla">3</span><span class="clip-nombre">Ver su avance</span><span class="clip-texto">Fichas, nivel y momentos guardados</span>
-        </button></li>
-        <li><button type="button" class="clip" data-clip="4" data-video="demo-programa.mp4" data-capturas="programa.png">
-          <span class="clip-tecla">4</span><span class="clip-nombre">Programa completo</span><span class="clip-texto">El camino y la fecha estimada</span>
-        </button></li>
-      </ol>
-      <div class="respaldo-controles">
-        <button type="button" class="boton-video" id="boton-video" hidden><span class="boton-video-icono" aria-hidden="true"></span><span class="boton-video-texto">Pausa</span></button>
-        <div class="progreso" id="progreso" hidden><span id="progreso-barra"></span></div>
-      </div>
-      <button type="button" class="respaldo-cerrar" id="respaldo-cerrar">Volver a la diapositiva</button>
-    </div>
-    <div class="respaldo-escena" id="respaldo-escena" data-visibles="1">
-      <figure class="telefono telefono-respaldo">
-        <div class="pantalla">
-          <img alt="" decoding="async">
-          <video muted playsinline preload="none" disablepictureinpicture></video>
-          <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo"></span><code></code></div>
-        </div>
-      </figure>
-      <figure class="telefono telefono-respaldo">
-        <div class="pantalla">
-          <img alt="" decoding="async">
-          <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo"></span><code></code></div>
-        </div>
-      </figure>
-      <figure class="telefono telefono-respaldo">
-        <div class="pantalla">
-          <img alt="" decoding="async">
-          <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo"></span><code></code></div>
-        </div>
-      </figure>
+<!-- 7 · Demo: corre sola en el iPhone, paso a paso -->
+<section class="diapositiva demo" id="7" aria-roledescription="diapositiva" aria-label="7 de 11: Demo" data-titulo="Demo">
+  <div class="demo-lado">
+    <p class="kicker entra" style="--i:0">Del plan a la acción, en su iPhone</p>
+    <h2 class="titulo entra" style="--i:1">Un paso posible.<br>Un avance real.</h2>
+    <ol class="demo-lista entra" style="--i:2" aria-label="Pasos de la demo">
+      <li><button type="button" class="clip" data-paso="1" data-video="demo-lunes.mp4" data-captura="ajustar.png" aria-current="true" aria-controls="demo-video">
+        <span class="clip-tecla">1</span><span class="clip-nombre">Ajustar el plan</span><span class="clip-texto">Encontrar un horario disponible</span>
+      </button></li>
+      <li><button type="button" class="clip" data-paso="2" data-video="demo-registrar.mp4" data-captura="registrar.png" aria-current="false" aria-controls="demo-video">
+        <span class="clip-tecla">2</span><span class="clip-nombre">Registrar una sesión</span><span class="clip-texto">Fui, cómo me sentí y qué ayudó</span>
+      </button></li>
+      <li><button type="button" class="clip" data-paso="3" data-video="demo-tu-avance.mp4" data-captura="tu-avance.png" aria-current="false" aria-controls="demo-video">
+        <span class="clip-tecla">3</span><span class="clip-nombre">Ver su avance</span><span class="clip-texto">Fichas, nivel y momentos guardados</span>
+      </button></li>
+      <li><button type="button" class="clip" data-paso="4" data-video="demo-programa.mp4" data-captura="programa.png" aria-current="false" aria-controls="demo-video">
+        <span class="clip-tecla">4</span><span class="clip-nombre">Programa completo</span><span class="clip-texto">El camino y la fecha estimada</span>
+      </button></li>
+    </ol>
+    <div class="demo-controles entra" style="--i:3">
+      <button type="button" class="boton-video" id="demo-control" aria-controls="demo-video" data-estado="pausado"><span class="boton-video-icono" aria-hidden="true"></span><span class="boton-video-texto">Reproducir</span></button>
+      <div class="progreso" aria-hidden="true"><span id="demo-barra"></span></div>
     </div>
   </div>
+  <figure class="telefono demo-telefono entra" id="demo-telefono" style="--i:2">
+    <div class="pantalla">
+      <img id="demo-poster" src="medios/ajustar.png" alt="Ajustar el plan, en la app de iPhone" decoding="async">
+      <video id="demo-video" muted playsinline preload="metadata" disablepictureinpicture aria-label="La demo de Dominó en el iPhone, paso a paso"></video>
+      <div class="falta" aria-hidden="true"><span class="falta-marca"></span><span class="falta-titulo">Demo</span><code>medios/ajustar.png</code></div>
+    </div>
+  </figure>
 </section>
 
 <!-- 8 · Su avance -->
@@ -393,7 +364,8 @@
       <div><dt>→ · espacio · clic</dt><dd>Siguiente</dd></div>
       <div><dt>←</dt><dd>Anterior</dd></div>
       <div><dt>F</dt><dd>Pantalla completa</dd></div>
-      <div><dt>1 · 2 · 3 · 4</dt><dd>En la demo, videos de respaldo</dd></div>
+      <div><dt>1 · 2 · 3 · 4</dt><dd>En la demo, ir a un paso</dd></div>
+      <div><dt>K</dt><dd>En la demo, pausar o seguir</dd></div>
       <div><dt>B</dt><dd>Pantalla negra</dd></div>
       <div><dt>T</dt><dd>Tema claro u oscuro</dd></div>
       <div><dt>Esc</dt><dd>Cerrar</dd></div>

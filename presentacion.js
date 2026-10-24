@@ -1,4 +1,4 @@
-// Dominó · presentación del pitch: navegación, número en el hash, medios y respaldo de la demo.
+// Dominó · presentación del pitch: navegación, número en el hash y medios.
 // Sin dependencias ni compilación: funciona abierta como archivo local y publicada en Vercel.
 (function () {
   'use strict';
@@ -35,7 +35,6 @@
   /** Muestra una diapositiva. Sus elementos entran en el cuadro siguiente para que la transición corra. */
   function ir(indice) {
     indice = limitar(indice);
-    cerrarRespaldo();
     if (indice === actual) return;
     var previa = actual;
     actual = indice;
@@ -100,7 +99,6 @@
     raiz.classList.toggle('modo-pagina', vertical.matches);
     raiz.classList.toggle('modo-deck', !vertical.matches);
     raiz.style.setProperty('--escala', Math.min(window.innerWidth / 1920, window.innerHeight / 1080));
-    cerrarRespaldo();
     var indice = actual >= 0 ? actual : desdeHash();
 
     if (enDeck()) {
@@ -149,20 +147,9 @@
     }
 
     // Enter y espacio conservan la activación nativa del control que tiene el foco.
-    // El espacio sigue pausando el video cuando el foco está en el panel del respaldo.
     if ((tecla === 'Enter' || tecla === ' ' || tecla === 'Spacebar') &&
         t && t.closest && t.closest('button, a, [role="button"]')) return;
 
-    if (respaldoAbierto()) {
-      if (tecla === ' ' || tecla === 'Spacebar' || tecla === 'k' || tecla === 'K') { e.preventDefault(); alternarVideo(); return; }
-      if (tecla === 'Escape') { e.preventDefault(); cerrarRespaldo(true); return; }
-    }
-
-    if (/^[1-4]$/.test(tecla) && diapositivas[actual] && diapositivas[actual].contains(respaldo)) {
-      e.preventDefault();
-      abrirClip(tecla);
-      return;
-    }
 
     switch (tecla) {
       case 'f': case 'F': case 'F5':
@@ -199,7 +186,7 @@
     }
   });
 
-  // Clic en cualquier parte avanza, salvo en enlaces, botones, el respaldo o una capa abierta.
+  // Clic en cualquier parte avanza, salvo en enlaces, botones o una capa abierta.
   document.addEventListener('click', function (e) {
     if (!enDeck() || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     if (e.target.closest('a, button, video, input, select, textarea, [role="dialog"], .capa')) return;
@@ -217,7 +204,7 @@
     toque = e.touches.length === 1 ? { x: e.touches[0].clientX, y: e.touches[0].clientY } : null;
   }, { passive: true });
   deck.addEventListener('touchend', function (e) {
-    if (!toque || !enDeck() || respaldoAbierto()) { toque = null; return; }
+    if (!toque || !enDeck()) { toque = null; return; }
     var dx = e.changedTouches[0].clientX - toque.x;
     var dy = e.changedTouches[0].clientY - toque.y;
     toque = null;
@@ -290,185 +277,12 @@
 
   Array.prototype.forEach.call(document.querySelectorAll('.telefono'), vigilarImagen);
 
-  // ------------------------------------------------------------------ Respaldo de la demo
-
-  var respaldo = document.getElementById('respaldo');
-  var escena = document.getElementById('respaldo-escena');
-  var telefonos = escena.querySelectorAll('.telefono');
-  var video = escena.querySelector('video');
-  var botonVideo = document.getElementById('boton-video');
-  var progreso = document.getElementById('progreso');
-  var barra = document.getElementById('progreso-barra');
-  var clips = Array.prototype.slice.call(respaldo.querySelectorAll('.clip'));
-  var videoEsperado = '';
-  var capturasActuales = [];
-  var focoAntesDeRespaldo = null;
-  var cuadro = 0;
-
-  function respaldoAbierto() { return !respaldo.hidden; }
-
-  function puedeReproducirRespaldo() {
-    return respaldoAbierto() && !document.hidden && !imprimiendo &&
-      (!enDeck() || (diapositivas[actual] && diapositivas[actual].contains(respaldo)));
-  }
-
-  /** Pone una captura en un iPhone del respaldo; sin captura, el marco dice qué archivo falta. */
-  function ponerCaptura(telefono, archivo, titulo, esperados) {
-    var img = telefono.querySelector('img');
-    telefono.classList.remove('con-imagen', 'con-video');
-    telefono.querySelector('.falta-titulo').textContent = titulo;
-    telefono.querySelector('.falta code').textContent = esperados.map(function (a) { return 'medios/' + a; }).join('\n');
-    if (archivo) img.setAttribute('src', 'medios/' + archivo);
-    else img.removeAttribute('src');
-    if (archivo && img.complete) telefono.classList.toggle('con-imagen', img.naturalWidth > 0);
-  }
-
-  function abrirClip(numero) {
-    var boton = respaldo.querySelector('.clip[data-clip="' + numero + '"]');
-    if (!boton) return;
-    if (!respaldoAbierto()) {
-      focoAntesDeRespaldo = document.activeElement;
-      respaldo.hidden = false;
-      raiz.classList.add('con-respaldo');
-      respaldo.tabIndex = -1;
-      respaldo.focus({ preventScroll: true });
-    }
-    clips.forEach(function (c) { c.setAttribute('aria-current', c === boton ? 'true' : 'false'); });
-
-    var titulo = boton.querySelector('.clip-nombre').textContent;
-    var archivoVideo = boton.getAttribute('data-video') || '';
-    capturasActuales = (boton.getAttribute('data-capturas') || '').split(/\s+/).filter(Boolean);
-
-    Array.prototype.forEach.call(telefonos, function (telefono, i) {
-      var esperados = capturasActuales.slice(i, i + 1);
-      if (i === 0 && archivoVideo) esperados.unshift(archivoVideo);
-      ponerCaptura(telefono, capturasActuales[i], titulo, esperados);
-    });
-    // Sin video, las capturas lado a lado. Con video, solo cuando el video no está.
-    mostrarCapturas(archivoVideo ? 1 : capturasActuales.length);
-
-    video.pause();
-    mostrarControles(false);
-    videoEsperado = archivoVideo ? 'medios/' + archivoVideo : '';
-    if (videoEsperado) {
-      video.setAttribute('src', videoEsperado);
-      video.load();
-    } else {
-      video.removeAttribute('src');
-      video.load();
-    }
-  }
-
-  function cerrarRespaldo(devolverFoco) {
-    if (!respaldo || respaldo.hidden) return;
-    // Invalida una carga pendiente para que loadeddata no reproduzca tras cerrar.
-    videoEsperado = '';
-    video.pause();
-    respaldo.hidden = true;
-    raiz.classList.remove('con-respaldo');
-    cancelAnimationFrame(cuadro);
-    if (devolverFoco && focoAntesDeRespaldo && focoAntesDeRespaldo.focus) focoAntesDeRespaldo.focus({ preventScroll: true });
-    focoAntesDeRespaldo = null;
-  }
-
-  function videoListo() { return telefonos[0].classList.contains('con-video'); }
-
-  function mostrarCapturas(cantidad) {
-    escena.setAttribute('data-visibles', String(Math.min(Math.max(cantidad, 1), telefonos.length)));
-  }
-
-  function mostrarControles(mostrar) {
-    botonVideo.hidden = !mostrar;
-    progreso.hidden = !mostrar;
-    barra.style.transform = 'scaleX(0)';
-    if (mostrar) pintarEstado();
-  }
-
-  function alternarVideo() {
-    if (!videoListo() || !puedeReproducirRespaldo()) return;
-    if (video.paused || video.ended) {
-      if (video.ended) video.currentTime = 0;
-      var promesa = video.play();
-      if (promesa && promesa.catch) promesa.catch(function () {});
-    } else {
-      video.pause();
-    }
-  }
-
-  function pintarEstado() {
-    var pausado = video.paused || video.ended;
-    botonVideo.setAttribute('data-estado', pausado ? 'pausado' : 'reproduciendo');
-    botonVideo.querySelector('.boton-video-texto').textContent = video.ended ? 'Repetir' : pausado ? 'Reproducir' : 'Pausa';
-  }
-
-  function pintarProgreso() {
-    var fraccion = video.duration ? video.currentTime / video.duration : 0;
-    barra.style.transform = 'scaleX(' + Math.min(Math.max(fraccion, 0), 1) + ')';
-    if (!video.paused && !video.ended) cuadro = requestAnimationFrame(pintarProgreso);
-  }
-
-  video.addEventListener('loadeddata', function () {
-    if (video.getAttribute('src') !== videoEsperado) return;
-    telefonos[0].classList.add('con-video');
-    mostrarCapturas(1);
-    mostrarControles(true);
-    if (!puedeReproducirRespaldo()) return;
-    var promesa = video.play();
-    if (promesa && promesa.catch) promesa.catch(function () { pintarEstado(); });
-  });
-
-  video.addEventListener('error', function () {
-    if (!videoEsperado || video.getAttribute('src') !== videoEsperado) return;
-    telefonos[0].classList.remove('con-video');
-    mostrarControles(false);
-    mostrarCapturas(capturasActuales.length);
-  });
-
-  video.addEventListener('play', function () {
-    if (!puedeReproducirRespaldo()) { video.pause(); return; }
-    pintarEstado();
-    cancelAnimationFrame(cuadro);
-    cuadro = requestAnimationFrame(pintarProgreso);
-  });
-  video.addEventListener('pause', function () { cancelAnimationFrame(cuadro); pintarEstado(); });
-  document.addEventListener('visibilitychange', function () {
-    // Volver a la pestaña deja el video pausado hasta una acción de la persona.
-    if (document.hidden) video.pause();
-  });
-  video.addEventListener('ended', function () { pintarEstado(); pintarProgreso(); });
-
-  botonVideo.addEventListener('click', function (e) {
-    alternarVideo();
-    if (e.detail > 0) respaldo.focus({ preventScroll: true });
-  });
-  telefonos[0].addEventListener('click', alternarVideo);
-  document.getElementById('respaldo-cerrar').addEventListener('click', function () { cerrarRespaldo(true); });
-
-  Array.prototype.forEach.call(document.querySelectorAll('.momento, .clip'), function (boton) {
-    boton.addEventListener('click', function (e) {
-      abrirClip(boton.getAttribute('data-clip'));
-      // Con el mouse, el foco no se queda en el botón: así el espacio pausa el video y no lo reinicia.
-      if (e.detail > 0) respaldo.focus({ preventScroll: true });
-    });
-  });
-
-  // Las capturas del respaldo se cargan de antemano para que aparezcan al tiro.
-  window.addEventListener('load', function () {
-    clips.forEach(function (c) {
-      (c.getAttribute('data-capturas') || '').split(/\s+/).filter(Boolean).forEach(function (archivo) {
-        var img = new Image();
-        img.src = 'medios/' + archivo;
-      });
-    });
-  });
-
   // ------------------------------------------------------------------ Imprimir
 
   // El PDF siempre sale en 16:9, una diapositiva por página y con cada diagrama terminado.
   // Al imprimir, el navegador mide la orientación del papel: mientras dure, no se cambia de modo.
   window.addEventListener('beforeprint', function () {
     imprimiendo = true;
-    cerrarRespaldo();
     raiz.classList.add('imprimiendo', 'modo-deck');
     raiz.classList.remove('modo-pagina');
     diapositivas.forEach(function (d) { d.classList.add('activa'); });
