@@ -91,7 +91,6 @@ button {
 }
 
 /* Las capas reciben el foco para que el teclado siga funcionando; no son controles. */
-.respaldo:focus,
 .capa:focus { outline: none; }
 
 .anuncio {
@@ -570,7 +569,8 @@ button {
 .modo-deck .camila .bajada { max-width: 1350px; }
 .modo-deck .camila .frase-completa { display: block; }
 .modo-deck .camila .bajada strong { white-space: nowrap; }
-.modo-deck .camila-contexto { grid-template-columns: repeat(3, 1fr); gap: 64px; margin-top: 76px; }
+.contexto-cifra { color: var(--acento); font-variant-numeric: tabular-nums; }
+.modo-deck .camila-contexto { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; margin-top: 120px; max-width: 1240px; }
 .modo-deck .camila-contexto li { padding-top: 30px; }
 .modo-deck .contexto-signo { height: 86px; font-size: 76px; }
 .modo-deck .contexto-signo svg { width: 64px; height: 64px; }
@@ -633,13 +633,13 @@ button {
 .evidencia cite { display: block; font-size: 13px; color: var(--texto-2); margin-top: 22px; line-height: 1.5; }
 .evidencia cite a { text-decoration-color: var(--linea-fuerte); text-underline-offset: 4px; }
 .evidencia-hipotesis { margin-top: 36px; font-size: 21px; line-height: 1.4; max-width: 1100px; }
-.modo-deck .evidencia { grid-template-columns: repeat(3, 1fr); gap: 64px; margin-top: 66px; }
+.modo-deck .evidencia { grid-template-columns: repeat(3, 1fr); gap: 64px; margin-top: 110px; }
 .modo-deck .evidencia li { padding-top: 28px; }
 .modo-deck .evidencia-numero { font-size: 34px; margin-bottom: 28px; }
 .modo-deck .evidencia h3 { font-size: 44px; }
 .modo-deck .evidencia p { font-size: 32px; margin-top: 24px; }
 .modo-deck .evidencia cite { font-size: 21px; margin-top: 26px; }
-.modo-deck .evidencia-hipotesis { font-size: 38px; max-width: 1500px; margin-top: 64px; }
+.modo-deck .evidencia-hipotesis { font-size: 38px; max-width: 1500px; margin-top: 96px; }
 
 /* ------------------------------------------------------------------ 5 · La solución */
 
@@ -738,84 +738,13 @@ button {
 .modo-deck .garantias li { gap: 18px; font-size: 32px; }
 .modo-deck .garantias svg { width: 48px; height: 48px; }
 
-/* ------------------------------------------------------------------ 7 · Demo en vivo */
+/* ------------------------------------------------------------------ 7 · Demo */
 
-.momentos {
-  display: grid;
-  gap: 12px;
-  margin-top: 32px;
-}
-
-.momento {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 16px;
-  align-items: baseline;
-  width: 100%;
-  padding: 18px 0;
-  border-top: 1px solid var(--linea-fuerte);
-  text-align: left;
-}
-
-.momento-dia {
-  grid-column: 1 / -1;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--texto-2);
-}
-
-.momento-hora {
-  font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  font-size: 44px;
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -.02em;
-  font-variant-numeric: tabular-nums;
-  transition: color .2s ease;
-}
-
-.momento-texto {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.momento:hover .momento-hora { color: var(--acento); }
-
-.modo-deck .momentos {
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 64px;
-  margin-top: 196px;
-}
-
-.modo-deck .momento {
-  grid-template-columns: none;
-  align-items: start;
-  padding: 40px 0 0;
-  border-top-width: 2px;
-}
-
-.modo-deck .momento-dia { font-size: 38px; }
-.modo-deck .momento-hora { margin-top: 12px; font-size: 160px; line-height: 1; letter-spacing: -.025em; }
-.modo-deck .momento-texto { margin-top: 30px; font-size: 40px; }
-
-/* Respaldo: el video de cada momento si la demo en vivo falla. */
-.respaldo {
-  position: fixed;
-  inset: 0;
-  z-index: 40;
-  display: grid;
-  gap: 28px;
-  align-content: start;
-  padding: 28px 24px 40px;
-  overflow: auto;
-  background: var(--fondo);
-}
-
-.respaldo-lista {
+/* La demo corre sola en el iPhone, un paso tras otro; cada paso tiene su tecla. */
+.demo-lista {
   display: grid;
   gap: 4px;
-  margin-top: 6px;
+  margin-top: 26px;
 }
 
 .clip {
@@ -842,7 +771,7 @@ button {
   color: var(--texto-2);
 }
 
-.clip-nombre { font-size: 17px; font-weight: 600; }
+.clip-nombre { font-size: 17px; font-weight: 600; transition: color .2s ease; }
 .clip-texto { font-size: 14px; color: var(--texto-2); }
 
 .clip[aria-current="true"] { background: var(--superficie); }
@@ -853,12 +782,7 @@ button {
   color: var(--sobre-acento);
 }
 
-.respaldo-controles {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 18px;
-}
+.clip:hover .clip-nombre { color: var(--acento); }
 
 .boton-video {
   display: inline-flex;
@@ -872,7 +796,6 @@ button {
   font-weight: 600;
 }
 
-/* Pausa: dos barras. Reproducir: un triángulo. */
 .boton-video-icono {
   width: 12px;
   height: 14px;
@@ -906,50 +829,31 @@ button {
   transform-origin: 0 50%;
 }
 
-.respaldo-cerrar {
-  margin-top: 18px;
-  font-size: 15px;
-  color: var(--texto-2);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.respaldo-escena {
+.demo-controles {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 28px;
-}
-
-.respaldo-escena .telefono { margin: 0; }
-.respaldo-escena .telefono:not(:first-child) { display: none; }
-.respaldo-escena[data-visibles="2"] .telefono:nth-child(2),
-.respaldo-escena[data-visibles="3"] .telefono:nth-child(-n+3) { display: block; }
-.respaldo-escena:not([data-visibles="1"]) .telefono { --ancho: min(40vw, 190px); }
-
-.modo-deck .respaldo {
-  position: absolute;
-  z-index: 5;
-  grid-template-columns: 540px 1fr;
-  column-gap: 60px;
-  align-content: center;
   align-items: center;
-  padding: 100px 150px 92px;
-  overflow: visible;
+  gap: 16px;
+  margin-top: 18px;
 }
 
-.modo-deck .respaldo-lista { gap: 8px; margin-top: 18px; }
-.modo-deck .clip { grid-template-columns: 60px 1fr; column-gap: 22px; padding: 20px 22px; border-radius: 22px; }
+.demo-telefono { --ancho: min(80vw, 330px); margin: 36px auto 0; cursor: pointer; }
+
+.modo-deck .demo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 120px;
+}
+
+.modo-deck .demo .titulo { font-size: 76px; line-height: 1.05; }
+.modo-deck .demo-lista { gap: 8px; margin-top: 40px; max-width: 780px; }
+.modo-deck .clip { grid-template-columns: 60px 1fr; column-gap: 22px; padding: 18px 22px; border-radius: 22px; }
 .modo-deck .clip-tecla { width: 52px; height: 52px; border-radius: 14px; font-size: 24px; }
 .modo-deck .clip-nombre { font-size: 34px; }
 .modo-deck .clip-texto { font-size: 25px; }
-.modo-deck .respaldo-controles { gap: 24px; margin-top: 44px; }
+.modo-deck .demo-controles { gap: 24px; margin-top: 36px; max-width: 780px; }
 .modo-deck .boton-video { height: 60px; padding: 0 28px 0 24px; border-radius: 30px; font-size: 24px; gap: 14px; }
-.modo-deck .respaldo-cerrar { margin-top: 30px; font-size: 24px; }
-.modo-deck .respaldo-escena { flex-wrap: nowrap; gap: 48px; }
-.modo-deck .respaldo-escena .telefono { --ancho: 384px; }
-.modo-deck .respaldo-escena[data-visibles="2"] .telefono { --ancho: 350px; }
-.modo-deck .respaldo-escena[data-visibles="3"] .telefono { --ancho: 292px; }
+.modo-deck .demo-telefono { --ancho: 384px; margin: 0; }
 
 /* ------------------------------------------------------------------ 8 · Su avance */
 .extras { display: grid; gap: 24px; margin-top: 36px; }
@@ -1321,13 +1225,9 @@ button {
   .modo-deck .diapositiva:last-child { break-after: auto; }
 
   .js .entra { opacity: 1 !important; transform: none !important; }
-  .respaldo, .capa, .anuncio { display: none !important; }
+  .capa, .anuncio { display: none !important; }
   *, *::before, *::after { transition: none !important; }
 }
-
-/* En el celular, el respaldo abierto no deja desplazar la página de atrás. */
-.modo-pagina.con-respaldo,
-.modo-pagina.con-respaldo body { overflow: hidden; }
 
 /* ------------------------------------------------------------------ 6 · Calendario y compañía */
 

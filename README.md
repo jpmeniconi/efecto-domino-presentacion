@@ -22,9 +22,9 @@ Abre `http://localhost:8000`.
 | → · espacio · clic · PageDown | Siguiente lámina |
 | ← · PageUp | Anterior |
 | F | Pantalla completa |
-| 1 · 2 · 3 · 4 | En la lámina 7: ajuste, registro, avance y programa |
-| Espacio, con foco en el panel del respaldo | Pausa o continúa el video; sobre un botón, lo activa |
-| Esc | Cierra el respaldo o la ayuda |
+| 1 · 2 · 3 · 4 | En la lámina 7: ajustar, registrar, ver el avance y el programa |
+| K | En la lámina 7: pausa o sigue la demo |
+| Esc | Cierra la ayuda |
 | B | Pantalla negra |
 | T | Tema claro u oscuro |
 | ? | Ayuda |
@@ -55,7 +55,7 @@ En la lámina 6 se reproduce una vez al entrar `semana-recorrido.mp4`, de unos o
 
 El control ofrece **Pausar**, **Continuar** y **Repetir**. **Invitar a alguien** vuelve a la imagen de la caminata y muestra el mensaje animado. Con Reducir movimiento se mantiene esa imagen hasta pulsar **Ver recorrido**; si falla el video, se alternan las imágenes de respaldo. En la app nativa, compartir abre la hoja de iOS: la persona elige el destino y confirma el envío. La presentación solo muestra una vista previa.
 
-La lámina 10 muestra tres decisiones seleccionables: avisos por elección, avance conservado e invitaciones. La de avisos usa la grabación de una notificación real de prueba que la app envía en iOS. Cada una reproduce un fragmento de los videos existentes y mantiene su última imagen; la invitación termina en su tarjeta para no mostrar la siguiente escena de la Gantt. La primera se inicia al entrar; con Reducir movimiento se utiliza el botón Ver. Los videos quedan pausados al cambiar de pestaña o imprimir y mantienen su posición al volver.
+La lámina 10 muestra tres decisiones seleccionables: avisos por elección, avance conservado e invitaciones. La de avisos usa la grabación de una notificación real de prueba que la app envía en iOS. Cada una reproduce un fragmento de los videos existentes y mantiene su última imagen; la invitación termina en su tarjeta para no mostrar la siguiente escena de la Gantt. Al entrar, las tres se recorren solas, una tras otra, en unos 11 s; tocar una detiene el recorrido y muestra solo esa. Con Reducir movimiento no avanzan solas y se usa el botón Ver. Los videos quedan pausados al cambiar de pestaña o imprimir y mantienen su posición al volver.
 ## Publicación en Vercel
 
 El sitio está en `https://efecto-domino-presentacion.vercel.app/` y el proyecto usa la raíz del repositorio independiente `jpmeniconi/efecto-domino-presentacion`.
@@ -67,20 +67,20 @@ Configuración del proyecto:
 - **Build Command / Output Directory:** sin compilación ni directorio adicional.
 - La integración con Git publica los cambios de `main`.
 
-`vercel.json` conserva la configuración del sitio. `.vercelignore` excluye de la publicación este README, el guion y la herramienta del QR. Antes de publicar, verifica la presentación local y los respaldos; después comprueba la versión desplegada.
+`vercel.json` conserva la configuración del sitio. `.vercelignore` excluye de la publicación este README, el guion y la herramienta del QR. Antes de publicar, verifica la presentación local y sus videos; después comprueba la versión desplegada.
 
 ## Capturas y videos
 
-Los medios están en `medios/`. Los cuatro respaldos de la lámina 7 son:
+Los medios están en `medios/`. La lámina 7 muestra la demo en video dentro del iPhone: al entrar, los cuatro pasos corren solos, uno tras otro, en unos 36 s. Tocar un paso o su tecla lo muestra y detiene el recorrido; **K** pausa o sigue. Con Reducir movimiento no corre sola y se usa **Reproducir**.
 
-| Tecla | Video | Captura de respaldo | Función |
+| Tecla | Video | Captura | Función |
 |---|---|---|---|
-| 1 | `demo-lunes.mp4` | `mi-plan.png`, `ajustar.png` | Adaptar: ajustar un bloque |
-| 2 | `demo-registrar.mp4` | `registrar.png` | Registrar: guardar una sesión |
-| 3 | `demo-tu-avance.mp4` | `tu-avance.png` | Reconocer: ver el avance |
+| 1 | `demo-lunes.mp4` | `mi-plan.png`, `ajustar.png` | Ajustar un bloque |
+| 2 | `demo-registrar.mp4` | `registrar.png` | Registrar una sesión |
+| 3 | `demo-tu-avance.mp4` | `tu-avance.png` | Ver su avance |
 | 4 | `demo-programa.mp4` | `programa.png` | Ver el programa completo |
 
-Si un video no carga, su respaldo usa las capturas disponibles. Los videos demuestran esas funciones; no tienen por qué reproducir las mismas fechas, cifras o decisiones del iPhone durante el pitch.
+Si un video no carga, queda la captura del paso y el recorrido sigue con el siguiente. Los videos demuestran esas funciones; no tienen por qué reproducir las mismas fechas, cifras o decisiones del iPhone durante el pitch.
 
 Medios visibles en las otras láminas:
 
@@ -105,9 +105,9 @@ Las capturas PNG originales son verticales del simulador iPhone 18 Pro, 1206 × 
 1. Recorre las once láminas en horizontal y vertical; comprueba texto, imágenes y consola.
 2. En la portada, comprueba la rotación automática cada cinco segundos, la ausencia de botones y contador y la frase estática con Reducir movimiento.
 3. En la lámina 6, comprueba una reproducción al entrar, pausa, continuación y repetición. **Invitar a alguien** debe volver a la tarjeta de caminata y animar el mensaje sin avanzar de lámina. Prueba también Reducir movimiento, **Ver recorrido** y las imágenes de respaldo si falla el video.
-4. Desde `#7`, prueba los cuatro respaldos, pausa y cierre, también con el teclado. El registro y el avance deben ocupar las teclas 2 y 3. Cerrar durante una carga no debe iniciar el video después.
+4. En `#7`, comprueba que la demo corra sola por los cuatro pasos y se detenga al final. Prueba las teclas 1–4 y **K**, y que la flecha y el espacio sigan avanzando de lámina.
 5. Comprueba el enlace del QR y que el guion conserve un presupuesto total de 5:00.
-6. En la 10, prueba las tres decisiones y comprueba que invitación termine en su tarjeta. Cambiar de pestaña o imprimir debe pausar los videos. La 11, con el QR, debe ser la última.
+6. En la 10, comprueba que las tres decisiones se recorran solas y que la invitación termine en su tarjeta; tocar una debe detener el recorrido. Cambiar de pestaña o imprimir debe pausar los videos. La 11, con el QR, debe ser la última.
 
 ## PDF de respaldo
 

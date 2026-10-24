@@ -11,10 +11,14 @@
   var botones = Array.from(lamina.querySelectorAll('[data-decision]'));
   var reducir = window.matchMedia('(prefers-reduced-motion: reduce)');
   var clips = {
-    avisos: { src: 'demo-notificaciones.mp4', poster: 'notificacion-aviso.png', inicio: 6, fin: 11.5, titulo: 'Avisos por elección' },
+    avisos: { src: 'demo-notificaciones.mp4', poster: 'notificacion-aviso.png', inicio: 6, fin: 9, titulo: 'Avisos por elección' },
     avance: { src: 'demo-tu-avance.mp4', poster: 'tu-avance.png', inicio: .35, fin: 3.4, titulo: 'El avance permanece' },
     invitar: { src: 'semana-recorrido.mp4', poster: 'semana-invitar.png', inicio: 0, fin: 3.2, titulo: 'Invitar por elección' }
   };
+  // Al entrar, las tres decisiones se muestran una tras otra; tocar una detiene el recorrido.
+  var orden = ['avisos', 'avance', 'invitar'];
+  var recorriendo = false;
+  var siguiente = null;
   var elegido = 'avisos';
   var visible = false;
   var estabaActiva = false;
@@ -42,7 +46,18 @@
     var promesa = video.play();
     if (promesa && promesa.catch) promesa.catch(function () { pintar(); });
   }
+  function cancelarSiguiente() { clearTimeout(siguiente); siguiente = null; }
+  function programarSiguiente() {
+    cancelarSiguiente();
+    var proxima = orden[orden.indexOf(elegido) + 1];
+    if (!proxima) { recorriendo = false; return; }
+    siguiente = setTimeout(function () {
+      siguiente = null;
+      if (recorriendo && activa()) elegir(proxima, true);
+    }, 600);
+  }
   function elegir(clave, reproducirAhora) {
+    cancelarSiguiente();
     pendiente = false;
     video.pause();
     elegido = clave;
@@ -65,16 +80,18 @@
   }
   function sincronizar() {
     // Estas suspensiones pausan el clip sin convertir el regreso en otra entrada.
-    if (document.hidden || imprimiendo) { pendiente = false; video.pause(); return; }
+    if (document.hidden || imprimiendo) { pendiente = false; cancelarSiguiente(); video.pause(); return; }
     var ahora = enPantalla();
-    if (ahora && !estabaActiva) elegir(elegido, !reducir.matches);
-    if (!ahora) { pendiente = false; video.pause(); }
+    if (ahora && !estabaActiva) { recorriendo = !reducir.matches; elegir('avisos', recorriendo); }
+    else if (ahora && recorriendo && terminado && !siguiente) programarSiguiente();
+    if (!ahora) { pendiente = false; recorriendo = false; cancelarSiguiente(); video.pause(); }
     estabaActiva = ahora;
   }
   botones.forEach(function (boton) {
-    boton.addEventListener('click', function () { elegir(boton.dataset.decision, !reducir.matches); });
+    boton.addEventListener('click', function () { recorriendo = false; elegir(boton.dataset.decision, !reducir.matches); });
   });
   control.addEventListener('click', function () {
+    cancelarSiguiente();
     if (!video.paused) video.pause();
     else reproducir(terminado || !telefono.classList.contains('con-video'));
   });
@@ -101,6 +118,7 @@
     // sin alcanzar la siguiente escena del video ni volver a buscar un fotograma.
     if (elegido === 'invitar') telefono.classList.remove('con-video');
     pintar();
+    if (recorriendo && activa()) programarSiguiente();
   }
   video.addEventListener('timeupdate', function () {
     if (!terminado && telefono.classList.contains('con-video') && video.currentTime >= clips[elegido].fin) {
@@ -110,6 +128,8 @@
   video.addEventListener('ended', finalizar);
   video.addEventListener('error', function () {
     fallo = true; pendiente = false; telefono.classList.remove('con-video'); pintar();
+    // Si un clip no carga, el recorrido sigue con la decisión siguiente.
+    if (recorriendo && activa()) programarSiguiente();
   });
   new IntersectionObserver(function (entradas) {
     if (imprimiendo) return;
@@ -119,7 +139,7 @@
   new MutationObserver(sincronizar).observe(lamina, { attributes: true, attributeFilter: ['class'] });
   new MutationObserver(sincronizar).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   document.addEventListener('visibilitychange', sincronizar);
-  function movimiento() { if (reducir.matches) { pendiente = false; video.pause(); telefono.classList.remove('con-video'); pintar(); } }
+  function movimiento() { if (reducir.matches) { pendiente = false; recorriendo = false; cancelarSiguiente(); video.pause(); telefono.classList.remove('con-video'); pintar(); } }
   if (reducir.addEventListener) reducir.addEventListener('change', movimiento);
   else reducir.addListener(movimiento);
   window.addEventListener('beforeprint', function () { imprimiendo = true; sincronizar(); });
