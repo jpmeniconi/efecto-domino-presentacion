@@ -170,6 +170,7 @@ Para ensayar, abre el archivo local en QuickTime y deja el inicio preparado. El 
 - **Fotos:** abre una ficha con foto y muestra ese momento del recorrido.
 - **Modo juego:** muestra el tablero y explica la regla de una ficha por día. La partida con Javiera es una demostración local; el prototipo no conecta dos teléfonos.
 - **Lo que te funciona:** la app habilita los patrones desde tres registros. Eso permite explorar lo registrado, no establecer causas. El ejemplo de la semana 6 ilustra un programa con más datos; no es el resultado de la única sesión recién guardada.
+- **Avisos:** la lámina 10 muestra la grabación de un aviso real de prueba. En el iPhone: **Mi plan → … → Notificaciones → Recibir avisos → Probar un aviso**; llega a los cinco segundos. Camila elige cuáles recibe: preparar su bloque, registrar cómo estuvo, reconocer lo que hizo y dejar lista la semana. Un reconocimiento llega solo después de guardar «Fui».
 - **Confirmar semana:** muestra cómo deja lista la semana siguiente. Estas funciones quedan fuera del recorrido principal de dos minutos.
 
 ## 8 · Su avance se hace visible · 3:50 a 4:00
@@ -194,15 +195,7 @@ Los avisos locales sí están implementados y parten desactivados. Camila elige 
 
 > Ahora queremos probar si esto ayuda a volver antes, moverse cada semana y seguir a las doce semanas. Ese es el próximo paso. Dominó: hacer espacio para moverte. Gracias.
 
-Quédate en esta lámina para las preguntas: contiene el QR del repositorio. Las métricas son un plan de validación, no resultados obtenidos.
-
-## 12 · Apoyo: un aviso para cada momento · fuera del pitch
-
-Úsala solo si preguntan por las notificaciones. Desde el cierre, avanza una lámina o abre `index.html#12`. Los cuatro momentos se recorren una vez; puedes pausar o tocar cada uno para explicar su mensaje. «Ver un aviso real» abre la grabación de prueba de la app; se pausa al salir de la lámina. «Volver al cierre» devuelve al QR.
-
-> Camila decide si quiere recibir avisos. Puede preparar su próximo bloque, registrar cómo estuvo, reconocer lo que ya hizo y dejar lista la próxima semana. El descanso y la frecuencia se respetan; un reconocimiento llega solo después de guardar «Fui».
-
-El video muestra el aviso explícito de prueba, no un entrenamiento realizado. Para probarlo en el iPhone: **Mi plan → … → Notificaciones → Recibir avisos → Probar un aviso**. La prueba llega a los cinco segundos.
+Quédate en esta lámina para las preguntas: es la última y contiene el QR del repositorio. Las métricas son un plan de validación, no resultados obtenidos.
 
 ---
 
@@ -219,7 +212,7 @@ El video muestra el aviso explícito de prueba, no un entrenamiento realizado. P
 **Presentación y proyección**
 
 - Prueba el cambio entre el navegador y la pantalla del iPhone. La presentación permanece en la lámina **7** durante la demo.
-- Ten el archivo local `presentacion/index.html` y la versión de Vercel disponibles. El archivo local usa los medios que tengas descargados junto a él.
+- Ten el archivo local `index.html` de este repositorio y la versión de Vercel disponibles. El archivo local usa los medios que tengas descargados junto a él.
 - Mira las láminas 3, 5 y 8 desde el fondo de la sala. Si hace falta, **T** cambia entre claro y oscuro.
 - Desde la lámina **7**, prueba las teclas **1**, **2**, **3** y **4**; cierra cada respaldo con **Esc**.
 - Comprueba avance, retroceso y pantalla completa. En la portada, verifica la rotación automática de citas; con Reducir movimiento debe mantenerse una frase estática.

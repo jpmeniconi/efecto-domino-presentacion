@@ -1,6 +1,6 @@
 # Presentación del pitch
 
-Once diapositivas del pitch y una lámina final de apoyo de Dominó en HTML, CSS y JavaScript, sin dependencias ni compilación. El relato es: **Camila quiere sentirse bien → encuentra espacio → elige un paso posible → lo hace → ve su avance → descubre qué le funciona**.
+Once diapositivas del pitch de Dominó en HTML, CSS y JavaScript, sin dependencias ni compilación. El relato es: **Camila quiere sentirse bien → encuentra espacio → elige un paso posible → lo hace → ve su avance → descubre qué le funciona**.
 
 La tipografía es la del sistema (SF en Mac). En horizontal se usa un lienzo 1920 × 1080 escalado, con proporción 16:9; en un celular vertical se lee como página. El texto para presentar, el recorrido del iPhone y las preguntas probables están en [`guion.md`](guion.md). El relato y la demo suman 4:40 y dejan 0:20 de margen hasta el límite de 5:00.
 
@@ -45,8 +45,7 @@ El número de la lámina queda en la dirección: `index.html#7` abre la demo. En
 | 8 | Su avance se hace visible | Fichas/nivel, una foto y ciclos del Modo juego |
 | 9 | Descubrir qué le funciona | Horarios, ayudas y manual para seguir |
 | 10 | Qué dejamos fuera | Avisos insistentes, rachas que vuelven a cero, exposición de faltas y límites de esta versión |
-| 11 | ¿Camila vuelve y lo sostiene? | Métricas propuestas para un piloto y cierre |
-| 12 | Un aviso para cada momento | Cuatro tipos de aviso animados y grabación opcional; fuera del pitch |
+| 11 | ¿Camila vuelve y lo sostiene? | Métricas propuestas para un piloto y cierre con QR; es la última lámina |
 
 En la portada, tres citas de autores se alternan cada cinco segundos dentro del iPhone. No hay botones ni contador; con Reducir movimiento se mantiene una frase estática. Es un comportamiento de la presentación. La bienvenida de la app nativa mantiene su frase hasta que la persona toca la flecha habilitada: no entra sola al terminar la carga.
 
@@ -56,10 +55,7 @@ En la lámina 6 se reproduce una vez al entrar `semana-recorrido.mp4`, de unos o
 
 El control ofrece **Pausar**, **Continuar** y **Repetir**. **Invitar a alguien** vuelve a la imagen de la caminata y muestra el mensaje animado. Con Reducir movimiento se mantiene esa imagen hasta pulsar **Ver recorrido**; si falla el video, se alternan las imágenes de respaldo. En la app nativa, compartir abre la hoja de iOS: la persona elige el destino y confirma el envío. La presentación solo muestra una vista previa.
 
-La lámina 10 muestra tres decisiones seleccionables: avisos por elección, avance conservado e invitaciones. Cada una reproduce un fragmento de los videos existentes y mantiene su última imagen; la invitación termina en su tarjeta para no mostrar la siguiente escena de la Gantt. La primera se inicia al entrar; con Reducir movimiento se utiliza el botón Ver. Los videos quedan pausados al cambiar de pestaña o imprimir y mantienen su posición al volver.
-
-La lámina 12 recorre una vez cuatro momentos con los textos del planificador de la app: preparar un bloque, registrar la experiencia, reconocer el avance y preparar la próxima semana. En celular, espera a que el teléfono sea visible. Se puede pausar o elegir un ejemplo; una selección manual se conserva al desplazarse. «Ver un aviso real» abre la grabación de prueba.
-
+La lámina 10 muestra tres decisiones seleccionables: avisos por elección, avance conservado e invitaciones. La de avisos usa la grabación de una notificación real de prueba que la app envía en iOS. Cada una reproduce un fragmento de los videos existentes y mantiene su última imagen; la invitación termina en su tarjeta para no mostrar la siguiente escena de la Gantt. La primera se inicia al entrar; con Reducir movimiento se utiliza el botón Ver. Los videos quedan pausados al cambiar de pestaña o imprimir y mantienen su posición al volver.
 ## Publicación en Vercel
 
 El sitio está en `https://efecto-domino-presentacion.vercel.app/` y el proyecto usa la raíz del repositorio independiente `jpmeniconi/efecto-domino-presentacion`.
@@ -96,6 +92,7 @@ Medios visibles en las otras láminas:
 | `tu-avance.png` | 8 · Fichas y nivel |
 | `foto-ampliada.png` | 8 · Foto de una ficha |
 | `lo-que-te-funciona.png`, `manual.png` | 9 · Aprendizajes y manual |
+| `demo-notificaciones.mp4`, `notificacion-aviso.png` | 10 · Grabación y captura de un aviso real de iOS |
 
 El video de la lámina 6 y sus dos imágenes se generaron con `scripts/clip-semana.swift` en el repositorio original de la app. En este repositorio independiente se conservan los medios resultantes.
 
@@ -105,12 +102,12 @@ Las capturas PNG originales son verticales del simulador iPhone 18 Pro, 1206 × 
 
 ## Verificación antes de compartir
 
-1. Recorre las doce láminas en horizontal y vertical; comprueba texto, imágenes y consola.
+1. Recorre las once láminas en horizontal y vertical; comprueba texto, imágenes y consola.
 2. En la portada, comprueba la rotación automática cada cinco segundos, la ausencia de botones y contador y la frase estática con Reducir movimiento.
 3. En la lámina 6, comprueba una reproducción al entrar, pausa, continuación y repetición. **Invitar a alguien** debe volver a la tarjeta de caminata y animar el mensaje sin avanzar de lámina. Prueba también Reducir movimiento, **Ver recorrido** y las imágenes de respaldo si falla el video.
 4. Desde `#7`, prueba los cuatro respaldos, pausa y cierre, también con el teclado. El registro y el avance deben ocupar las teclas 2 y 3. Cerrar durante una carga no debe iniciar el video después.
 5. Comprueba el enlace del QR y que el guion conserve un presupuesto total de 5:00.
-6. En la 10, prueba las tres decisiones y comprueba que invitación termine en su tarjeta. En la 12, prueba los cuatro ejemplos, el recorrido, la grabación y su cierre. Cambiar de pestaña o imprimir debe pausar los videos.
+6. En la 10, prueba las tres decisiones y comprueba que invitación termine en su tarjeta. Cambiar de pestaña o imprimir debe pausar los videos. La 11, con el QR, debe ser la última.
 
 ## PDF de respaldo
 
