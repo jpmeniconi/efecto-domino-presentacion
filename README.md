@@ -75,9 +75,9 @@ Los medios están en `medios/`. Los cuatro respaldos de la lámina 7 son:
 
 | Tecla | Video | Captura de respaldo | Función |
 |---|---|---|---|
-| 1 | `demo-lunes.mp4` | `mi-plan.png`, `ajustar.png` | Adaptar: ajustar un bloque |
-| 2 | `demo-registrar.mp4` | `registrar.png` | Registrar: guardar una sesión |
-| 3 | `demo-tu-avance.mp4` | `tu-avance.png` | Reconocer: ver el avance |
+| 1 | `demo-lunes.mp4` | `mi-plan.png`, `ajustar.png` | Ajustar un bloque |
+| 2 | `demo-registrar.mp4` | `registrar.png` | Registrar una sesión |
+| 3 | `demo-tu-avance.mp4` | `tu-avance.png` | Ver su avance |
 | 4 | `demo-programa.mp4` | `programa.png` | Ver el programa completo |
 
 Si un video no carga, su respaldo usa las capturas disponibles. Los videos demuestran esas funciones; no tienen por qué reproducir las mismas fechas, cifras o decisiones del iPhone durante el pitch.

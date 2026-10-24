@@ -570,7 +570,8 @@ button {
 .modo-deck .camila .bajada { max-width: 1350px; }
 .modo-deck .camila .frase-completa { display: block; }
 .modo-deck .camila .bajada strong { white-space: nowrap; }
-.modo-deck .camila-contexto { grid-template-columns: repeat(3, 1fr); gap: 64px; margin-top: 76px; }
+.contexto-cifra { color: var(--acento); font-variant-numeric: tabular-nums; }
+.modo-deck .camila-contexto { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; margin-top: 120px; max-width: 1240px; }
 .modo-deck .camila-contexto li { padding-top: 30px; }
 .modo-deck .contexto-signo { height: 86px; font-size: 76px; }
 .modo-deck .contexto-signo svg { width: 64px; height: 64px; }
@@ -633,13 +634,13 @@ button {
 .evidencia cite { display: block; font-size: 13px; color: var(--texto-2); margin-top: 22px; line-height: 1.5; }
 .evidencia cite a { text-decoration-color: var(--linea-fuerte); text-underline-offset: 4px; }
 .evidencia-hipotesis { margin-top: 36px; font-size: 21px; line-height: 1.4; max-width: 1100px; }
-.modo-deck .evidencia { grid-template-columns: repeat(3, 1fr); gap: 64px; margin-top: 66px; }
+.modo-deck .evidencia { grid-template-columns: repeat(3, 1fr); gap: 64px; margin-top: 110px; }
 .modo-deck .evidencia li { padding-top: 28px; }
 .modo-deck .evidencia-numero { font-size: 34px; margin-bottom: 28px; }
 .modo-deck .evidencia h3 { font-size: 44px; }
 .modo-deck .evidencia p { font-size: 32px; margin-top: 24px; }
 .modo-deck .evidencia cite { font-size: 21px; margin-top: 26px; }
-.modo-deck .evidencia-hipotesis { font-size: 38px; max-width: 1500px; margin-top: 64px; }
+.modo-deck .evidencia-hipotesis { font-size: 38px; max-width: 1500px; margin-top: 96px; }
 
 /* ------------------------------------------------------------------ 5 · La solución */
 
@@ -746,58 +747,58 @@ button {
   margin-top: 32px;
 }
 
+/* La acción manda; el número solo recuerda la tecla de su respaldo. */
 .momento {
   display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 16px;
-  align-items: baseline;
+  align-items: start;
   width: 100%;
   padding: 18px 0;
   border-top: 1px solid var(--linea-fuerte);
   text-align: left;
 }
 
-.momento-dia {
-  grid-column: 1 / -1;
+.momento-hora {
+  order: -1;
+  margin-bottom: 8px;
   font-size: 15px;
   font-weight: 600;
-  color: var(--texto-2);
+  line-height: 1;
+  color: var(--acento);
+  font-variant-numeric: tabular-nums;
 }
 
-.momento-hora {
-  font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  font-size: 44px;
+.momento-dia {
+  font-size: 30px;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -.02em;
-  font-variant-numeric: tabular-nums;
   transition: color .2s ease;
 }
 
 .momento-texto {
+  margin-top: 8px;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.3;
+  color: var(--texto-2);
 }
 
-.momento:hover .momento-hora { color: var(--acento); }
+.momento:hover .momento-dia { color: var(--acento); }
 
 .modo-deck .momentos {
   grid-template-columns: repeat(3, 1fr);
   column-gap: 64px;
-  margin-top: 196px;
+  margin-top: 210px;
 }
 
 .modo-deck .momento {
-  grid-template-columns: none;
-  align-items: start;
-  padding: 40px 0 0;
+  padding: 36px 0 0;
   border-top-width: 2px;
 }
 
-.modo-deck .momento-dia { font-size: 38px; }
-.modo-deck .momento-hora { margin-top: 12px; font-size: 160px; line-height: 1; letter-spacing: -.025em; }
-.modo-deck .momento-texto { margin-top: 30px; font-size: 40px; }
+.modo-deck .momento-hora { margin-bottom: 26px; font-size: 30px; }
+.modo-deck .momento-dia { font-size: 76px; line-height: 1.02; letter-spacing: -.035em; }
+.modo-deck .momento-texto { margin-top: 24px; font-size: 36px; }
 
 /* Respaldo: el video de cada momento si la demo en vivo falla. */
 .respaldo {
