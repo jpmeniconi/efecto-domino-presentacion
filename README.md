@@ -22,7 +22,7 @@ Abre `http://localhost:8000`.
 | → · espacio · clic · PageDown | Siguiente lámina |
 | ← · PageUp | Anterior |
 | F | Pantalla completa |
-| 1 · 2 · 3 · 4 | En la lámina 7: ajustar, registrar, ver el avance y el programa |
+| 1 a 5 | En la lámina 7: ajustar, registrar, ver el avance, el programa y el recorrido completo |
 | K | En la lámina 7: pausa o sigue la demo |
 | Esc | Cierra la ayuda |
 | B | Pantalla negra |
@@ -73,7 +73,7 @@ Configuración del proyecto:
 
 ## Capturas y videos
 
-Los medios están en `medios/`. La lámina 7 muestra la demo en video dentro del iPhone: al entrar, los cuatro pasos corren solos, uno tras otro, en unos 36 s. Tocar un paso o su tecla lo muestra y detiene el recorrido; **K** pausa o sigue. Con Reducir movimiento no corre sola y se usa **Reproducir**.
+Los medios están en `medios/`. La lámina 7 muestra la demo en video dentro del iPhone: al entrar, los cuatro primeros pasos corren solos, uno tras otro, en unos 36 s. El quinto, el recorrido completo con la entrada del logo (1:28), corre solo si se elige. Tocar un paso o su tecla lo muestra y detiene el recorrido; **K** pausa o sigue. Con Reducir movimiento no corre sola y se usa **Reproducir**.
 
 | Tecla | Video | Captura | Función |
 |---|---|---|---|
@@ -81,6 +81,7 @@ Los medios están en `medios/`. La lámina 7 muestra la demo en video dentro del
 | 2 | `demo-registrar.mp4` | `registrar.png` | Registrar una sesión |
 | 3 | `demo-tu-avance.mp4` | `tu-avance.png` | Ver su avance |
 | 4 | `demo-programa.mp4` | `programa.png` | Ver el programa completo |
+| 5 | `recorrido.mp4` | `recorrido-inicio.png` | Recorrido completo, con la entrada del logo |
 
 Si un video no carga, queda la captura del paso y el recorrido sigue con el siguiente. Los videos demuestran esas funciones; no tienen por qué reproducir las mismas fechas, cifras o decisiones del iPhone durante el pitch.
 

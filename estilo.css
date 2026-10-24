@@ -846,12 +846,12 @@ button {
 }
 
 .modo-deck .demo .titulo { font-size: 76px; line-height: 1.05; }
-.modo-deck .demo-lista { gap: 8px; margin-top: 40px; max-width: 780px; }
-.modo-deck .clip { grid-template-columns: 60px 1fr; column-gap: 22px; padding: 18px 22px; border-radius: 22px; }
+.modo-deck .demo-lista { gap: 6px; margin-top: 32px; max-width: 780px; }
+.modo-deck .clip { grid-template-columns: 60px 1fr; column-gap: 22px; padding: 14px 22px; border-radius: 22px; }
 .modo-deck .clip-tecla { width: 52px; height: 52px; border-radius: 14px; font-size: 24px; }
 .modo-deck .clip-nombre { font-size: 34px; }
 .modo-deck .clip-texto { font-size: 25px; }
-.modo-deck .demo-controles { gap: 24px; margin-top: 36px; max-width: 780px; }
+.modo-deck .demo-controles { gap: 24px; margin-top: 28px; max-width: 780px; }
 .modo-deck .boton-video { height: 60px; padding: 0 28px 0 24px; border-radius: 30px; font-size: 24px; gap: 14px; }
 .modo-deck .demo-telefono { --ancho: 384px; margin: 0; }
 

@@ -37,7 +37,7 @@ La conexión personal aparece en la lámina 4, con el trabajo, los videos y los 
 | ← · PageUp | Anterior |
 | F | Pantalla completa |
 | B | Pantalla negra; otra tecla la quita |
-| 1 · 2 · 3 · 4 | En la lámina 7: ajustar, registrar, ver el avance y el programa |
+| 1 a 5 | En la lámina 7: ajustar, registrar, ver el avance, el programa y el recorrido completo |
 | K | En la lámina 7: pausa o sigue la demo en video |
 | Esc | Cierra la ayuda |
 | T | Tema claro u oscuro |
@@ -97,7 +97,7 @@ En el iPhone, la invitación abre la hoja de compartir de iOS y Camila decide c�
 
 > Veamos ese momento: hoy Camila está agotada y necesita ajustar lo que tenía pensado.
 
-La lámina 7 muestra la demo en video dentro de su iPhone: los cuatro pasos corren solos, uno tras otro, en unos 36 s. Si haces la demo en vivo, cambia a la pantalla del iPhone proyectada en el Mac; si no, narra sobre el video de la lámina. Las fechas y horas pueden ser las que aparezcan en tu teléfono. El recorrido se guía por funciones; los tiempos de cada fila son metas de ensayo.
+La lámina 7 muestra la demo en video dentro de su iPhone: los cuatro primeros pasos corren solos, uno tras otro, en unos 36 s; el quinto, el recorrido completo de 1:28, corre solo si lo eliges. Si haces la demo en vivo, cambia a la pantalla del iPhone proyectada en el Mac; si no, narra sobre el video de la lámina. Las fechas y horas pueden ser las que aparezcan en tu teléfono. El recorrido se guía por funciones; los tiempos de cada fila son metas de ensayo.
 
 | Tiempo de demo | Muestra / toca | Dices |
 |---|---|---|

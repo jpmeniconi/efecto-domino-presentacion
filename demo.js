@@ -1,5 +1,6 @@
 // Lámina 7: la demo en video corre sola en el iPhone, un paso tras otro.
-// Tocar un paso, o sus teclas 1–4, lo muestra y detiene el recorrido; K pausa o sigue.
+// Tocar un paso, o su tecla, lo muestra y detiene el recorrido; K pausa o sigue.
+// Un paso con data-manual, como el recorrido completo, solo corre si se elige.
 (function () {
   'use strict';
   var telefono = document.getElementById('demo-telefono');
@@ -42,7 +43,8 @@
   function cancelarSiguiente() { clearTimeout(siguiente); siguiente = null; }
   function programarSiguiente() {
     cancelarSiguiente();
-    if (elegido + 1 >= pasos.length) { recorriendo = false; return; }
+    var proximo = pasos[elegido + 1];
+    if (!proximo || proximo.hasAttribute('data-manual')) { recorriendo = false; return; }
     siguiente = setTimeout(function () {
       siguiente = null;
       if (recorriendo && activa()) elegir(elegido + 1, true);
@@ -112,7 +114,7 @@
     if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.altKey || !enPantalla()) return;
     var t = e.target;
     if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
-    if (/^[1-4]$/.test(e.key) && pasos[Number(e.key) - 1]) {
+    if (/^[1-9]$/.test(e.key) && pasos[Number(e.key) - 1]) {
       e.preventDefault();
       recorriendo = false;
       elegir(Number(e.key) - 1, true);
