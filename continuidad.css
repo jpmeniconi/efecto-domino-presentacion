@@ -1,0 +1,157 @@
+/* Decisiones de continuidad: explicación completa y una muestra del producto. */
+.continuidad-contenido { min-width: 0; }
+.continuidad-instruccion {
+  margin-top: 18px;
+  color: var(--texto-2);
+  font-size: 17px;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.continuidad .continuidad-decisiones {
+  display: grid;
+  gap: 12px;
+  margin-top: 26px;
+}
+.continuidad .continuidad-decisiones > .decision {
+  display: block;
+  padding: 16px;
+  border: 1px solid var(--linea);
+  border-radius: 18px;
+  background: transparent;
+  transition: background .25s var(--curva), border-color .25s var(--curva), box-shadow .25s var(--curva);
+}
+.continuidad .decision.seleccionada {
+  border-color: var(--acento);
+  background: var(--acento-suave);
+  box-shadow: inset 2px 0 0 var(--acento);
+}
+.continuidad .decision dt { font-size: inherit; line-height: inherit; }
+.decision-tab {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 44px;
+  text-align: left;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -.018em;
+}
+.decision-numero {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 50%;
+  color: var(--texto-2);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  transition: color .25s ease, border-color .25s ease;
+}
+.decision-titulo { min-width: 0; text-wrap: pretty; }
+.decision-tab > svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  color: var(--texto-2);
+  transition: transform .25s var(--curva), color .25s ease;
+}
+.seleccionada .decision-numero { border-color: var(--acento); color: var(--acento); }
+.seleccionada .decision-tab > svg { color: var(--acento); transform: translateX(2px); }
+.decision-tab:hover .decision-titulo { color: var(--acento); }
+.continuidad .decision dd {
+  margin: 8px 0 0 40px;
+  color: var(--texto-2);
+  font-size: 16px;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.continuidad-alcance {
+  display: grid;
+  gap: 6px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--linea);
+  color: var(--texto-2);
+  font-size: 15px;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+.continuidad-alcance strong { color: var(--texto); font-weight: 600; }
+.continuidad-alcance span { min-width: 0; }
+
+.continuidad-telefono {
+  --ancho: min(68vw, 280px);
+  margin: 48px auto 70px;
+}
+.continuidad-controles {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--texto-2);
+  font-size: 14px;
+  line-height: 1.25;
+}
+.continuidad-controles > span { min-width: 0; text-wrap: pretty; }
+.continuidad-controles > button {
+  flex: none;
+  min-height: 44px;
+  padding: 6px 12px;
+  border: 1px solid var(--linea-fuerte);
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: color .2s ease, border-color .2s ease;
+}
+.continuidad-controles > button:hover { color: var(--acento); border-color: var(--acento); }
+
+.modo-deck .continuidad {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 354px;
+  align-items: center;
+  column-gap: 104px;
+  padding-top: 100px;
+  padding-bottom: 110px;
+}
+.modo-deck .continuidad .titulo { font-size: 76px; line-height: 1.05; }
+.modo-deck .continuidad .kicker { margin-bottom: 22px; }
+.modo-deck .continuidad-instruccion { margin-top: 20px; font-size: 26px; line-height: 1.35; }
+.modo-deck .continuidad .continuidad-decisiones { gap: 14px; margin-top: 30px; }
+.modo-deck .continuidad .continuidad-decisiones > .decision { padding: 20px 24px; border-radius: 24px; }
+.modo-deck .decision-tab { grid-template-columns: 40px minmax(0, 1fr) 24px; gap: 20px; font-size: 31px; min-height: 44px; }
+.modo-deck .decision-numero { width: 40px; height: 40px; font-size: 19px; }
+.modo-deck .decision-tab > svg { width: 24px; height: 24px; }
+.modo-deck .continuidad .decision dd { margin: 8px 12px 0 60px; font-size: 25px; line-height: 1.3; }
+.modo-deck .continuidad-alcance { gap: 8px; margin-top: 28px; padding-top: 24px; font-size: 23px; line-height: 1.3; }
+.modo-deck .continuidad-telefono { --ancho: 332px; margin: -44px 0 0; justify-self: end; }
+.modo-deck .continuidad-controles { top: calc(100% + 16px); font-size: 20px; gap: 12px; }
+.modo-deck .continuidad-controles > button { padding: 8px 16px; min-height: 48px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .continuidad .decision,
+  .decision-numero,
+  .decision-tab > svg,
+  .continuidad-controles > button { transition: none; }
+}
+
+@media print {
+  .continuidad .decision { box-shadow: none; }
+  .continuidad .decision.seleccionada { background: transparent; border-color: var(--linea); }
+  .continuidad-telefono video,
+  .continuidad-controles,
+  .continuidad-instruccion { display: none !important; }
+  .continuidad-telefono .pantalla img { opacity: 1 !important; }
+}
