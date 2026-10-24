@@ -13,7 +13,7 @@
   var clips = {
     avisos: { src: 'demo-notificaciones.mp4', poster: 'notificacion-aviso.png', inicio: 6, fin: 11.5, titulo: 'Avisos por elección' },
     avance: { src: 'demo-tu-avance.mp4', poster: 'tu-avance.png', inicio: .35, fin: 3.4, titulo: 'El avance permanece' },
-    invitar: { src: 'semana-recorrido.mp4', poster: 'semana-invitar.png', inicio: 0, fin: 3.8, titulo: 'Invitar por elección' }
+    invitar: { src: 'semana-recorrido.mp4', poster: 'semana-invitar.png', inicio: 0, fin: 3.2, titulo: 'Invitar por elección' }
   };
   var elegido = 'avisos';
   var visible = false;
@@ -23,9 +23,12 @@
   var fallo = false;
   var imprimiendo = false;
 
-  function activa() {
-    return visible && !document.hidden && !imprimiendo && lamina.classList.contains('activa') &&
+  function enPantalla() {
+    return visible && lamina.classList.contains('activa') &&
       (!document.documentElement.classList.contains('modo-deck') || lamina.classList.contains('actual'));
+  }
+  function activa() {
+    return enPantalla() && !document.hidden && !imprimiendo;
   }
   function pintar() {
     control.textContent = fallo ? 'No disponible' : terminado ? 'Repetir' : !video.paused ? 'Pausar' : telefono.classList.contains('con-video') ? 'Continuar' : 'Ver';
@@ -61,7 +64,9 @@
     if (reproducirAhora) reproducir(true);
   }
   function sincronizar() {
-    var ahora = activa();
+    // Estas suspensiones pausan el clip sin convertir el regreso en otra entrada.
+    if (document.hidden || imprimiendo) { pendiente = false; video.pause(); return; }
+    var ahora = enPantalla();
     if (ahora && !estabaActiva) elegir(elegido, !reducir.matches);
     if (!ahora) { pendiente = false; video.pause(); }
     estabaActiva = ahora;
@@ -89,7 +94,14 @@
     pintar();
   });
   video.addEventListener('pause', pintar);
-  function finalizar() { terminado = true; video.pause(); pintar(); }
+  function finalizar() {
+    terminado = true;
+    video.pause();
+    // timeupdate puede llegar después del corte: conserva la tarjeta de invitación,
+    // sin alcanzar la siguiente escena del video ni volver a buscar un fotograma.
+    if (elegido === 'invitar') telefono.classList.remove('con-video');
+    pintar();
+  }
   video.addEventListener('timeupdate', function () {
     if (!terminado && telefono.classList.contains('con-video') && video.currentTime >= clips[elegido].fin) {
       finalizar();
@@ -100,6 +112,7 @@
     fallo = true; pendiente = false; telefono.classList.remove('con-video'); pintar();
   });
   new IntersectionObserver(function (entradas) {
+    if (imprimiendo) return;
     visible = entradas[0].isIntersecting && entradas[0].intersectionRatio >= .2;
     sincronizar();
   }, { threshold: [0, .2] }).observe(telefono);

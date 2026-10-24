@@ -148,6 +148,11 @@
       if (tecla === 'Escape' || tecla === '?' || tecla === 'h' || tecla === 'H') { e.preventDefault(); return; }
     }
 
+    // Enter y espacio conservan la activación nativa del control que tiene el foco.
+    // El espacio sigue pausando el video cuando el foco está en el panel del respaldo.
+    if ((tecla === 'Enter' || tecla === ' ' || tecla === 'Spacebar') &&
+        t && t.closest && t.closest('button, a, [role="button"]')) return;
+
     if (respaldoAbierto()) {
       if (tecla === ' ' || tecla === 'Spacebar' || tecla === 'k' || tecla === 'K') { e.preventDefault(); alternarVideo(); return; }
       if (tecla === 'Escape') { e.preventDefault(); cerrarRespaldo(true); return; }
@@ -302,6 +307,11 @@
 
   function respaldoAbierto() { return !respaldo.hidden; }
 
+  function puedeReproducirRespaldo() {
+    return respaldoAbierto() && !document.hidden && !imprimiendo &&
+      (!enDeck() || (diapositivas[actual] && diapositivas[actual].contains(respaldo)));
+  }
+
   /** Pone una captura en un iPhone del respaldo; sin captura, el marco dice qué archivo falta. */
   function ponerCaptura(telefono, archivo, titulo, esperados) {
     var img = telefono.querySelector('img');
@@ -351,6 +361,8 @@
 
   function cerrarRespaldo(devolverFoco) {
     if (!respaldo || respaldo.hidden) return;
+    // Invalida una carga pendiente para que loadeddata no reproduzca tras cerrar.
+    videoEsperado = '';
     video.pause();
     respaldo.hidden = true;
     raiz.classList.remove('con-respaldo');
@@ -373,7 +385,7 @@
   }
 
   function alternarVideo() {
-    if (!videoListo()) return;
+    if (!videoListo() || !puedeReproducirRespaldo()) return;
     if (video.paused || video.ended) {
       if (video.ended) video.currentTime = 0;
       var promesa = video.play();
@@ -400,6 +412,7 @@
     telefonos[0].classList.add('con-video');
     mostrarCapturas(1);
     mostrarControles(true);
+    if (!puedeReproducirRespaldo()) return;
     var promesa = video.play();
     if (promesa && promesa.catch) promesa.catch(function () { pintarEstado(); });
   });
@@ -411,8 +424,17 @@
     mostrarCapturas(capturasActuales.length);
   });
 
-  video.addEventListener('play', function () { pintarEstado(); cancelAnimationFrame(cuadro); cuadro = requestAnimationFrame(pintarProgreso); });
-  video.addEventListener('pause', pintarEstado);
+  video.addEventListener('play', function () {
+    if (!puedeReproducirRespaldo()) { video.pause(); return; }
+    pintarEstado();
+    cancelAnimationFrame(cuadro);
+    cuadro = requestAnimationFrame(pintarProgreso);
+  });
+  video.addEventListener('pause', function () { cancelAnimationFrame(cuadro); pintarEstado(); });
+  document.addEventListener('visibilitychange', function () {
+    // Volver a la pestaña deja el video pausado hasta una acción de la persona.
+    if (document.hidden) video.pause();
+  });
   video.addEventListener('ended', function () { pintarEstado(); pintarProgreso(); });
 
   botonVideo.addEventListener('click', function (e) {

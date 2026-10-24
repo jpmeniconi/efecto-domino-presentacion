@@ -1038,6 +1038,12 @@ button {
 
 .par-telefonos .telefono { --ancho: min(40vw, 190px); margin: 0; }
 
+/* En celulares, el detalle debe poder leerse sin reducir ambas capturas a la mitad. */
+@media (max-width: 600px) {
+  .modo-pagina .par-telefonos { flex-direction: column; align-items: center; gap: 28px; }
+  .modo-pagina .par-telefonos .telefono { --ancho: min(84vw, 330px); }
+}
+
 .modo-deck .semana,
 .modo-deck .termina {
   display: grid;

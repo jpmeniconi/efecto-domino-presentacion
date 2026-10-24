@@ -16,9 +16,13 @@
   var fallo = false;
   var escena = 1;
 
-  function activa() {
-    return visible && !document.hidden && !imprimiendo && lamina.classList.contains('activa') &&
+  function enPantalla() {
+    return visible && lamina.classList.contains('activa') &&
       (!document.documentElement.classList.contains('modo-deck') || lamina.classList.contains('actual'));
+  }
+
+  function activa() {
+    return enPantalla() && !document.hidden && !imprimiendo;
   }
 
   function indicar(numero) {
@@ -48,7 +52,10 @@
   }
 
   function sincronizar() {
-    var ahora = activa();
+    // Suspender la pestaña o imprimir conserva el punto y la pausa elegidos.
+    // Solo salir y volver a la lámina inicia un recorrido nuevo.
+    if (document.hidden || imprimiendo) { video.pause(); return; }
+    var ahora = enPantalla();
     if (ahora && !estabaActiva) {
       imagen(1);
       if (!reducir.matches && !fallo) reproducir(true);
@@ -83,6 +90,7 @@
   video.addEventListener('error', function () { fallo = true; imagen(1); });
 
   new IntersectionObserver(function (entradas) {
+    if (imprimiendo) return;
     visible = entradas[0].isIntersecting && entradas[0].intersectionRatio >= .2;
     sincronizar();
   }, { threshold: [0, .2] }).observe(telefono);

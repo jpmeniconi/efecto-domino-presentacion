@@ -11,7 +11,7 @@ Abre `index.html` con doble clic en Safari o Chrome. Funciona como archivo local
 También puedes servir la carpeta:
 
 ```sh
-cd presentacion
+cd efecto-domino-presentacion
 python3 -m http.server 8000
 ```
 
@@ -23,7 +23,7 @@ Abre `http://localhost:8000`.
 | ← · PageUp | Anterior |
 | F | Pantalla completa |
 | 1 · 2 · 3 · 4 | En la lámina 7: ajuste, registro, avance y programa |
-| Espacio, con respaldo abierto | Pausa o continúa el video |
+| Espacio, con foco en el panel del respaldo | Pausa o continúa el video; sobre un botón, lo activa |
 | Esc | Cierra el respaldo o la ayuda |
 | B | Pantalla negra |
 | T | Tema claro u oscuro |
@@ -56,9 +56,9 @@ En la lámina 6 se reproduce una vez al entrar `semana-recorrido.mp4`, de unos o
 
 El control ofrece **Pausar**, **Continuar** y **Repetir**. **Invitar a alguien** vuelve a la imagen de la caminata y muestra el mensaje animado. Con Reducir movimiento se mantiene esa imagen hasta pulsar **Ver recorrido**; si falla el video, se alternan las imágenes de respaldo. En la app nativa, compartir abre la hoja de iOS: la persona elige el destino y confirma el envío. La presentación solo muestra una vista previa.
 
-La lámina 10 muestra tres decisiones seleccionables: avisos por elección, avance conservado e invitaciones. Cada una reproduce un fragmento de los videos existentes y mantiene su última imagen. La primera se inicia al entrar; con Reducir movimiento se utiliza el botón Ver.
+La lámina 10 muestra tres decisiones seleccionables: avisos por elección, avance conservado e invitaciones. Cada una reproduce un fragmento de los videos existentes y mantiene su última imagen; la invitación termina en su tarjeta para no mostrar la siguiente escena de la Gantt. La primera se inicia al entrar; con Reducir movimiento se utiliza el botón Ver. Los videos quedan pausados al cambiar de pestaña o imprimir y mantienen su posición al volver.
 
-La lámina 12 recorre una vez cuatro momentos con los textos del planificador de la app: preparar un bloque, registrar la experiencia, reconocer el avance y preparar la próxima semana. Se puede pausar o elegir un ejemplo. «Ver un aviso real» abre la grabación de prueba.
+La lámina 12 recorre una vez cuatro momentos con los textos del planificador de la app: preparar un bloque, registrar la experiencia, reconocer el avance y preparar la próxima semana. En celular, espera a que el teléfono sea visible. Se puede pausar o elegir un ejemplo; una selección manual se conserva al desplazarse. «Ver un aviso real» abre la grabación de prueba.
 
 ## Publicación en Vercel
 
@@ -97,7 +97,7 @@ Medios visibles en las otras láminas:
 | `foto-ampliada.png` | 8 · Foto de una ficha |
 | `lo-que-te-funciona.png`, `manual.png` | 9 · Aprendizajes y manual |
 
-El generador `swift scripts/clip-semana.swift`, ejecutado desde la raíz del repositorio, regenera el video de la lámina 6 y sus dos imágenes a partir de las grabaciones existentes; no abre el simulador ni cambia datos de la app.
+El video de la lámina 6 y sus dos imágenes se generaron con `scripts/clip-semana.swift` en el repositorio original de la app. En este repositorio independiente se conservan los medios resultantes.
 
 Los demás archivos de `medios/`, incluida la antigua captura `calendario.png`, el juego, las fotos, el miércoles y el domingo, quedan disponibles como referencias y recorridos adicionales. `recorrido.mp4` reúne varias funciones y no sustituye el ensayo de dos minutos descrito en el guion.
 
@@ -105,11 +105,12 @@ Las capturas PNG originales son verticales del simulador iPhone 18 Pro, 1206 × 
 
 ## Verificación antes de compartir
 
-1. Recorre las once láminas en horizontal y vertical; comprueba texto, imágenes y consola.
+1. Recorre las doce láminas en horizontal y vertical; comprueba texto, imágenes y consola.
 2. En la portada, comprueba la rotación automática cada cinco segundos, la ausencia de botones y contador y la frase estática con Reducir movimiento.
 3. En la lámina 6, comprueba una reproducción al entrar, pausa, continuación y repetición. **Invitar a alguien** debe volver a la tarjeta de caminata y animar el mensaje sin avanzar de lámina. Prueba también Reducir movimiento, **Ver recorrido** y las imágenes de respaldo si falla el video.
-4. Desde `#7`, prueba los cuatro respaldos, pausa y cierre. El registro y el avance deben ocupar las teclas 2 y 3.
+4. Desde `#7`, prueba los cuatro respaldos, pausa y cierre, también con el teclado. El registro y el avance deben ocupar las teclas 2 y 3. Cerrar durante una carga no debe iniciar el video después.
 5. Comprueba el enlace del QR y que el guion conserve un presupuesto total de 5:00.
+6. En la 10, prueba las tres decisiones y comprueba que invitación termine en su tarjeta. En la 12, prueba los cuatro ejemplos, el recorrido, la grabación y su cierre. Cambiar de pestaña o imprimir debe pausar los videos.
 
 ## PDF de respaldo
 
@@ -117,4 +118,4 @@ En Chrome, con la presentación en horizontal: **Imprimir → Guardar como PDF**
 
 ## QR
 
-`qr-repo.svg` lleva a `https://github.com/jpmeniconi/efecto-domino`. La herramienta local `python3 presentacion/herramientas/qr.py` usa solo la biblioteca estándar y no requiere servicios externos.
+`qr-repo.svg` lleva a `https://github.com/jpmeniconi/efecto-domino`. La herramienta local `python3 herramientas/qr.py` usa solo la biblioteca estándar y no requiere servicios externos.
